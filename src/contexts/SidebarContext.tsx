@@ -21,7 +21,7 @@ interface SidebarProviderProps {
 }
 
 export const SidebarProvider = ({ children }: SidebarProviderProps) => {
-  const [sidebarStatus, setSidebarStatus] = useState<SidebarStatus>("closed");
+  const [sidebarStatus, setSidebarStatus] = useState<SidebarStatus>("open");
 
   const toggleSidebar = () => {
     const newStatus: SidebarStatus = sidebarStatus === "closed" ? "open" : "closed";

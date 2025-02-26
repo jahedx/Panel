@@ -4,52 +4,28 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          50: "#eef3ff", // Lightest shade
+          100: "#dce4ff",
+          200: "#b8c7ff",
+          300: "#94aaff",
+          400: "#708dff",
+          500: "#4366f7", // Base color
+          600: "#3752c6",
+          700: "#2b3d94",
+          800: "#1f2962",
+          900: "#141531", // Darkest shade
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          1: "hsl(var(--chart-1))",
-          2: "hsl(var(--chart-2))",
-          3: "hsl(var(--chart-3))",
-          4: "hsl(var(--chart-4))",
-          5: "hsl(var(--chart-5))",
-        },
+        secondary: "#88C0D0", // A complementary soft blue
+        highlight: "#e1f4f5",
+        accent: "#5E81AC", // A darker accent for contrast
+        background: "#ECEFF4", // Light background
+        foreground: "#3a3f4a", // Dark foreground (text)
+        muted: "#D8DEE9", // Muted elements
+        warning: "#EBCB8B", // Warning color (soft orange)
+        error: "#BF616A", // Error (red tone)
+        success: "#A3BE8C", // Success (green tone)
       },
       keyframes: {
         "accordion-down": {
