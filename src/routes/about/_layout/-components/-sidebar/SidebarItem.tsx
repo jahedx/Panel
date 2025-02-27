@@ -7,11 +7,8 @@ type Props = {
   name: string;
   icon?: React.ReactNode;
   children?: React.ReactNode;
-
   link?: string;
-
   value?: string;
-
   disable?: boolean;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   dataTest?: string;
@@ -31,12 +28,12 @@ function SidebarItem({ icon, name, link, onClick }: Props) {
         }}
       >
         <div
-          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-12 p-0 hover:no-underline ${isActive && "bg-primary-50 mr-0 border border-primary-200 text-primary"}`}
+          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-11 hover:no-underline ${isActive && "bg-primary-50 mr-0 border border-primary-200 text-primary"}`}
         >
           <div
             className={`${isActive ? "text-primary-600" : "text-foreground"} mx-auto w-full text-center flex h-full items-center`}
           >
-            <div className="content-center text-center w-12 h-[46px] shrink-0 ">
+            <div className="content-center text-center mx-3 shrink-0 ">
               {icon}
             </div>
             <div className={`font-semibold`}>

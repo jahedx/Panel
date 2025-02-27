@@ -1,7 +1,4 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faUpDown } from "@fortawesome/free-solid-svg-icons";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { HouseIcon, PanelsRightBottomIcon } from "@/assets/Icons";
 import React from "react";
 
 export interface SidebarItemType {
@@ -19,35 +16,35 @@ export const SidebarList = (): SidebarItemType[] => {
   return [
     {
       value: "firstPage",
-      icon: <FontAwesomeIcon icon={faHome} />,
+      icon: <HouseIcon />,
       name: "داشبورد",
       link: "/about/ready",
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: "",
+      icon: <PanelsRightBottomIcon />,
       name: "صفحه 1",
       link: "/about",
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: "",
+      icon: <PanelsRightBottomIcon />,
       name: "صفحه 2",
       link: "/about/ready2",
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: "",
+      icon: <PanelsRightBottomIcon />,
       name: "صفحه 3",
       link: "/about/ready3",
       isMain: true,
     },
     // {
     //   value: "preRegister",
-    //   icon: <FontAwesomeIcon icon={faUpDown} />,
+    //   icon: "",
     //   name: "صفحه 1",
     //   subItems: [
     //     {
@@ -66,7 +63,7 @@ export const SidebarList = (): SidebarItemType[] => {
     // },
     // {
     //   value: "status",
-    //   icon: <FontAwesomeIcon icon={faUpDown} />,
+    //   icon: "",
     //   name: "صفحه-2",
     //   subItems: [
     //     {
