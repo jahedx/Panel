@@ -7,8 +7,11 @@ type Props = {
   name: string;
   icon?: React.ReactNode;
   children?: React.ReactNode;
+
   link?: string;
+
   value?: string;
+
   disable?: boolean;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   dataTest?: string;
