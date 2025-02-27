@@ -23,17 +23,20 @@ function SidebarItem({ icon, name, link, onClick }: Props) {
       <Link
         to={link ?? "#"}
         onClick={(event: unknown) => {
-          if (onClick) onClick(event as unknown as React.MouseEvent<HTMLAnchorElement>);
+          if (onClick)
+            onClick(event as unknown as React.MouseEvent<HTMLAnchorElement>);
         }}
       >
         <div
-          className={`[&>svg]:hidden rounded-2xl mr-[2.5px] w-full h-12 p-0 hover:no-underline ${isActive && "bg-primary-50 rounded-r-none mr-0 border-r-[2.5px] border-r-primary-500"}`}
+          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-12 p-0 hover:no-underline ${isActive && "bg-primary-50 mr-0 border border-primary-200 text-primary"}`}
         >
-          <div className="mx-auto w-full text-center flex h-full items-center">
-            <div className="content-center text-center w-12 h-[46px] shrink-0 text-foreground/50">
+          <div
+            className={`${isActive ? "text-primary-600" : "text-foreground"} mx-auto w-full text-center flex h-full items-center`}
+          >
+            <div className="content-center text-center w-12 h-[46px] shrink-0 ">
               {icon}
             </div>
-            <div className={`font-semibold text-foreground ${isActive && "text-primary"} `}>
+            <div className={`font-semibold`}>
               <p>{name}</p>
             </div>
           </div>

@@ -10,32 +10,33 @@
 
 @font-face {
   font-family: "IranSans";
-  src: url("/public/assets/fonts/IRANSansWeb.woff2") format("woff2");
+  src: url("/assets/fonts/IRANSansWeb.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "IranSansBold";
-  src: url("/public/assets/fonts/IRANSansWeb_Bold.woff2") format("woff2");
+  src: url("/assets/fonts/IRANSansWeb_Bold.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "IranSansMedium";
-  src: url("/public/assets/fonts/IRANSansWeb_Medium.woff2") format("woff2");
+  src: url("/assets/fonts/IRANSansWeb_Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "IranSansLight";
-  src: url("/public/assets/fonts/IRANSansWeb_Light.woff2") format("woff2");
+  src: url("/assets/fonts/IRANSansWeb_Light.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "IranSansUltraLight";
-  src: url("/public/assets/fonts/IRANSansWeb_UltraLight.woff2") format("woff2");
+  src: url("/assets/fonts/IRANSansWeb_UltraLight.woff2") format("woff2");
 }
 
 @layer base {
   body {
-    font-family: IranSans, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif !important;
+    font-family:
+      IranSans, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif !important;
     @apply text-base;
     @apply text-foreground;
   }
