@@ -1,9 +1,7 @@
+/* eslint-disable */
 import { DefaultError } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useI18n } from "@/hooks/useI18n";
-import faTranslations from "../constants/i18n/fa.json";
-import enTranslations from "../constants/i18n/en.json";
 
 // Define error types
 export enum ErrorType {
@@ -38,28 +36,31 @@ const getErrorType = (error: DefaultError): ErrorType => {
 
 // Function to get user-friendly message
 const GetUserFriendlyMessage = (errorType: ErrorType): string => {
-  const { t } = useI18n(faTranslations, enTranslations);
   switch (errorType) {
     case ErrorType.NETWORK:
-      return t("error_message.network");
+      return "error occured";
     case ErrorType.AUTHENTICATION:
-      return t("error_message.authentication");
+      return "error occured";
     case ErrorType.AUTHORIZATION:
-      return t("error_message.authorization");
+      return "error occured";
     case ErrorType.VALIDATION:
-      return t("error_message.validation");
+      return "error occured";
     case ErrorType.NOT_FOUND:
-      return t("error_message.not_found");
+      return "error occured";
     case ErrorType.API:
-      return t("error_message.api");
+      return "error occured";
     default:
-      return t("error_message.unknown");
+      return "error occured";
   }
 };
 
 // Main error handling function
 export const handleError = (error: DefaultError) => {
-  if (axios.isAxiosError(error) && error.response && error.response?.data?.messages?.length > 0) {
+  if (
+    axios.isAxiosError(error) &&
+    error.response &&
+    error.response?.data?.messages?.length > 0
+  ) {
     error.response?.data?.messages.forEach((err: string) => {
       toast.error(err, {
         id: "error-toast", // Assign an ID to the toast
@@ -74,7 +75,11 @@ export const handleError = (error: DefaultError) => {
 
 // Function to handle API errors specifically
 export const handleApiError = (error: DefaultError) => {
-  if (axios.isAxiosError(error) && error.response && error.response?.status === 401) {
+  if (
+    axios.isAxiosError(error) &&
+    error.response &&
+    error.response?.status === 401
+  ) {
     localStorage.removeItem("token");
     window.location.href = "/login";
   }

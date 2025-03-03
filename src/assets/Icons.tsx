@@ -4,7 +4,11 @@ type Props = {
   stroke?: number;
 };
 
-export function ArrowRightToLineIcon({ className, size = 24 }: Props) {
+export function ArrowRightToLineIcon({
+  className,
+  size = 24,
+  stroke = 2,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +17,7 @@ export function ArrowRightToLineIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-arrow-right-to-line`}
@@ -24,7 +28,7 @@ export function ArrowRightToLineIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function LogoutIcon({ className, size = 24 }: Props) {
+export function LogoutIcon({ className, size = 24, stroke = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +37,7 @@ export function LogoutIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-log-out`}
@@ -44,7 +48,7 @@ export function LogoutIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function PanelRighIcon({ className, size = 24 }: Props) {
+export function PanelRighIcon({ className, size = 24, stroke = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +57,7 @@ export function PanelRighIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-panel-right`}
@@ -63,7 +67,7 @@ export function PanelRighIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function HouseIcon({ className, size = 24 }: Props) {
+export function HouseIcon({ className, size = 24, stroke = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +76,7 @@ export function HouseIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-house`}
@@ -82,7 +86,7 @@ export function HouseIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function SlackIcon({ className, size = 24 }: Props) {
+export function SlackIcon({ className, size = 24, stroke = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +95,7 @@ export function SlackIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-slack`}
@@ -107,7 +111,7 @@ export function SlackIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function SearchIcon({ className, size = 24 }: Props) {
+export function SearchIcon({ className, size = 24, stroke = 2 }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +120,7 @@ export function SearchIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-search`}
@@ -126,7 +130,11 @@ export function SearchIcon({ className, size = 24 }: Props) {
     </svg>
   );
 }
-export function PanelsRightBottomIcon({ className, size = 24 }: Props) {
+export function PanelsRightBottomIcon({
+  className,
+  size = 24,
+  stroke = 2,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +143,7 @@ export function PanelsRightBottomIcon({ className, size = 24 }: Props) {
       viewBox="0 0 24 24"
       fill="none"
       stroke={"currentColor"}
-      strokeWidth="2"
+      strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`${className} lucide lucide-panels-right-bottom`}
@@ -143,6 +151,63 @@ export function PanelsRightBottomIcon({ className, size = 24 }: Props) {
       <rect width="18" height="18" x="3" y="3" rx="2" />
       <path d="M3 15h12" />
       <path d="M15 3v18" />
+    </svg>
+  );
+}
+export function ChevronUpIcon({ className, size = 24, stroke = 2 }: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={"currentColor"}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-chevron-up`}
+    >
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  );
+}
+export function ChevronRightIcon({ className, size = 24, stroke = 2 }: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={"currentColor"}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-chevron-right`}
+    >
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  );
+}
+export function CalendarIcon({ className, size = 24, stroke = 2 }: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={"currentColor"}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-calendar`}
+    >
+      <path d="M8 2v4" />
+      <path d="M16 2v4" />
+      <rect width="18" height="18" x="3" y="4" rx="2" />
+      <path d="M3 10h18" />
     </svg>
   );
 }

@@ -1,10 +1,8 @@
-import { LogoutIcon } from "@/assets/Icons";
+import { ChevronRightIcon, ChevronUpIcon, LogoutIcon } from "@/assets/Icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -20,15 +18,17 @@ const Avatar = () => {
           <h1 className="font-bold">داود بکام نژاد</h1>
           <p className="text-foreground/70">مدیر</p>
         </div>
-        <LogoutIcon className="text-xl mr-auto ml-4 hover:text-primary-600 transition-colors" />
+        <ChevronUpIcon className="text-xl mr-auto ml-4 hover:text-primary-600 transition-colors" />
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-72">
-        <DropdownMenuLabel></DropdownMenuLabel>
-        <DropdownMenuSeparator />
+      <DropdownMenuContent className="w-64">
         <DropdownMenuItem>Profile</DropdownMenuItem>
         <DropdownMenuItem>Billing</DropdownMenuItem>
         <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuItem className="flex font-bold border-t justify-between text-error">
+          <LogoutIcon stroke={3} />
+          <p>خروج از حساب</p>
+          <ChevronRightIcon stroke={3} />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

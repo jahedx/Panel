@@ -29,12 +29,12 @@ export default {
         success: "#A3BE8C",
       },
       width: {
-        sidebar: "22rem",
-        content: "calc(100% - 22rem)",
+        sidebar: "20rem",
+        content: "calc(100% - 20rem)",
         72: "18rem",
       },
       margin: {
-        "sidebar-distance": "23rem",
+        "sidebar-distance": "21rem",
       },
       keyframes: {
         "accordion-down": {

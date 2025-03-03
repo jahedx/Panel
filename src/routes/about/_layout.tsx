@@ -13,7 +13,6 @@ function RouteComponent() {
   const { sidebarStatus } = useContext<SidebarContextProps>(SidebarContext);
   return (
     <>
-      {/* <RegistraionSubHeader /> */}
       <div className="flex bg-background min-h-screen">
         <Sidebar />
         <div
