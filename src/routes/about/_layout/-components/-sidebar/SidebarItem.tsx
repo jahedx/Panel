@@ -28,16 +28,21 @@ function SidebarItem({ icon, name, link, onClick }: Props) {
         }}
       >
         <div
-          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-11 transition-all border ${isActive ? "bg-primary-50 mr-0 border border-primary-200 text-primary" : "border-transparent hover:no-underline hover:bg-gray-100 hover:border-gray-200"}
-          `}
+          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-11 transition-all border ${
+            isActive
+              ? "bg-background-secondary border-border"
+              : "border-transparent hover:bg-background-secondary/50"
+          }`}
         >
           <div
-            className={`${isActive ? "text-primary-600" : "text-foreground"} mx-auto w-full text-center flex h-full items-center hover:text-primary-600 transition-all`}
+            className={`${
+              isActive ? "text-primary-600" : "text-foreground"
+            } mx-auto w-full text-center flex h-full items-center hover:text-primary-600 transition-all`}
           >
-            <div className="content-center text-center mx-3 shrink-0 ">
+            <div className="content-center text-center mx-3 shrink-0">
               {icon}
             </div>
-            <div className={`font-semibold`}>
+            <div className="font-semibold">
               <p>{name}</p>
             </div>
           </div>

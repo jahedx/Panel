@@ -16,7 +16,7 @@ function RouteComponent() {
       <div className="flex bg-background min-h-screen">
         <Sidebar />
         <div
-          className={`transition-all ease-in-out duration-1000 w-full px-2 ${sidebarStatus === "open" && "md:mr-sidebar-distance pr-0 md:w-content"}`}
+          className={`w-full px-2 transition-[width,margin] ease-in-out duration-1000 ${sidebarStatus === "open" && "md:mr-sidebar-distance pr-0 md:w-content"}`}
         >
           <div>
             <Header />

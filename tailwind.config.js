@@ -6,27 +6,33 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: "#eef3ff",
-          100: "#dce4ff",
-          200: "#b8c7ff",
-          300: "#94aaff",
-          400: "#708dff",
-          500: "#4366f7",
-          600: "#3752c6",
-          700: "#2b3d94",
-          800: "#1f2962",
-          900: "#141531",
+          50: "var(--color-primary-50)",
+          100: "var(--color-primary-100)",
+          200: "var(--color-primary-200)",
+          300: "var(--color-primary-300)",
+          400: "var(--color-primary-400)",
+          500: "var(--color-primary-500)",
+          600: "var(--color-primary-600)",
+          700: "var(--color-primary-700)",
+          800: "var(--color-primary-800)",
+          900: "var(--color-primary-900)",
         },
-        secondary: "#88C0D0",
-        highlight: "#e1f4f5",
-        accent: "#5E81AC",
-        background: "#ECEFF4",
-        card: "#FFFF",
-        foreground: "#3a3f4a",
-        muted: "#D8DEE9",
-        warning: "#EBCB8B",
-        error: "#BF616A",
-        success: "#A3BE8C",
+        // Theme colors
+        background: "var(--background)",
+        "background-secondary": "var(--background-secondary)",
+        card: "var(--card)",
+        border: "var(--border)",
+        foreground: "var(--foreground)",
+        "foreground-secondary": "var(--foreground-secondary)",
+        muted: "var(--muted)",
+
+        // Accent colors
+        success: "var(--color-success)",
+        warning: "var(--color-warning)",
+        error: "var(--color-error)",
+        info: "var(--color-info)",
+        accent: "var(--color-accent)",
+        secondary: "var(--color-secondary)",
       },
       width: {
         sidebar: "20rem",
@@ -36,22 +42,23 @@ export default {
       margin: {
         "sidebar-distance": "21rem",
       },
+      boxShadow: {
+        DEFAULT: "0 4px 6px var(--shadow)",
+      },
+      backgroundColor: {
+        overlay: "var(--overlay)",
+      },
+      ringColor: {
+        DEFAULT: "var(--ring)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
