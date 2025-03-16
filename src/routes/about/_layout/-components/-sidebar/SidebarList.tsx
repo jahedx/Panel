@@ -16,28 +16,29 @@ export const SidebarList = (): SidebarItemType[] => {
   return [
     {
       value: "firstPage",
-      icon: <HouseIcon />,
+      icon: <HouseIcon size={20} stroke={2.5} />,
       name: "داشبورد",
       link: "/about/ready",
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: <PanelsRightBottomIcon />,
+      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
       name: "صفحه 1",
       link: "/about",
+
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: <PanelsRightBottomIcon />,
+      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
       name: "صفحه 2",
       link: "/about/ready2",
       isMain: true,
     },
     {
       value: "firstPage",
-      icon: <PanelsRightBottomIcon />,
+      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
       name: "صفحه 3",
       link: "/about/ready3",
       isMain: true,

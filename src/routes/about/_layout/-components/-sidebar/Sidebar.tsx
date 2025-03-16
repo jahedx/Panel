@@ -5,7 +5,6 @@ import SidebarItem from "./SidebarItem";
 import Avatar from "../-avatar/Avatar";
 import Logo from "../-logo/Logo";
 import SearchBar from "./SearchBar";
-import { ArrowRightToLineIcon } from "@/assets/Icons";
 
 export default function Sidebar({ empty = false }: { empty?: boolean }) {
   const { sidebarStatus, toggleSidebar } =
@@ -15,21 +14,13 @@ export default function Sidebar({ empty = false }: { empty?: boolean }) {
   return (
     <>
       <div
-        className={`w-sidebar p-2 bg-card rounded-md m-2 text-card-txt-old fixed z-50 ${
-          sidebarStatus == "open" ? "left-[calc(100%-21rem)] " : "left-full"
-        } top-0 bg-sidebar-bg transition-[left] h-[calc(100vh-16px)] text-sidebar-txt ease-in-out duration-1000 flex flex-col`}
+        className={`w-sidebar pb-2 bg-card text-card-txt-old fixed z-50 ${
+          sidebarStatus == "open" ? "left-[calc(100%-17rem)] " : "left-full"
+        } top-0 bg-sidebar-bg transition-[left] h-screen text-sidebar-txt ease-in-out duration-1000 flex flex-col border-l`}
       >
-        <div className="p-4 flex justify-between w-full">
-          <Logo />
-          <p
-            className="hover:bg-muted h-fit rounded-lg p-0.5 h"
-            onClick={toggleSidebar}
-          >
-            <ArrowRightToLineIcon className="cursor-pointer transition-colors " />
-          </p>
-        </div>
-        <SearchBar />
+        <Logo />
 
+        <SearchBar />
         {!empty && (
           <div className="flex-1 flex flex-col gap-3 mx-4">
             {sidebarItems?.map((item: SidebarItemType, i: number) => (

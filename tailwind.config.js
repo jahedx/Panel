@@ -25,6 +25,10 @@ export default {
         foreground: "var(--foreground)",
         "foreground-secondary": "var(--foreground-secondary)",
         muted: "var(--muted)",
+        "input-bg": "var(--input-bg, white)",
+        "input-bg-hover": "var(--input-bg-hover, #f8f9fa)",
+        "input-bg-focus": "var(--input-bg-focus, white)",
+        "input-txt": "var(--input-txt, #212529)",
 
         // Accent colors
         success: "var(--color-success)",
@@ -33,14 +37,44 @@ export default {
         info: "var(--color-info)",
         accent: "var(--color-accent)",
         secondary: "var(--color-secondary)",
+        neutral: {
+          50: "var(--color-neutral-50)",
+          100: "var(--color-neutral-100)",
+          200: "var(--color-neutral-200)",
+          300: "var(--color-neutral-300)",
+          400: "var(--color-neutral-400)",
+          500: "var(--color-neutral-500)",
+          600: "var(--color-neutral-600)",
+          700: "var(--color-neutral-700)",
+          800: "var(--color-neutral-800)",
+          900: "var(--color-neutral-900)",
+        },
+      },
+      height: {
+        input: "2.5rem", // 40px default height for inputs
+      },
+      padding: {
+        input: "0.75rem", // 12px default padding for inputs
       },
       width: {
-        sidebar: "20rem",
-        content: "calc(100% - 20rem)",
+        sidebar: "17rem",
+        content: "calc(100% - 17rem)",
         72: "18rem",
+        "input-title": "8rem", // Added based on your CSS using w-input-title
       },
       margin: {
-        "sidebar-distance": "21rem",
+        "sidebar-distance": "17rem",
+      },
+      fontSize: {
+        "2xs": ["11px", "18px"],
+        xs: ["12px", "20px"],
+        sm: ["13px", "22px"],
+        base: ["14px", "24px"],
+        lg: ["15px", "26px"],
+        xl: ["16px", "28px"],
+        "2xl": ["18px", "32px"],
+        "3xl": ["20px", "36px"],
+        "4xl": ["22px", "40px"],
       },
       boxShadow: {
         DEFAULT: "0 4px 6px var(--shadow)",

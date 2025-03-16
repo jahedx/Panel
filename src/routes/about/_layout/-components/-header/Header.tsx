@@ -13,9 +13,9 @@ const Header = () => {
   const date = moment().format("dddd jD jMMMM");
 
   return (
-    <div className="w-full sticky top-0 h-16 bg-card flex items-center px-2 my-2 ml-2">
+    <div className="w-full sticky top-0 h-16 bg-card flex items-center px-2 ml-2 border-b">
       <p
-        className="hover:bg-muted p-0.5 rounded-lg cursor-pointer ease-out duration-300"
+        className="hover:bg-neutral-200 h-fit rounded-lg p-0.5 h cursor-pointer transition-colors"
         onClick={toggleSidebar}
       >
         <PanelRighIcon

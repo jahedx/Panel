@@ -6,6 +6,9 @@ type Props = {
   isMain?: boolean;
   name: string;
   icon?: React.ReactNode;
+  iconClassName?: string;
+  iconSize?: number;
+  iconColor?: string;
   children?: React.ReactNode;
   link?: string;
   value?: string;
@@ -28,15 +31,17 @@ function SidebarItem({ icon, name, link, onClick }: Props) {
         }}
       >
         <div
-          className={`[&>svg]:hidden rounded-lg mr-[2.5px] w-full h-11 transition-all border ${
+          className={`[&>svg]:hidden rounded-md w-full h-10 transition-all ${
             isActive
-              ? "bg-background-secondary border-border"
-              : "border-transparent hover:bg-background-secondary/50"
+              ? "bg-background-secondary shadow-sm"
+              : "hover:bg-background-secondary/50"
           }`}
         >
           <div
             className={`${
-              isActive ? "text-primary-600" : "text-foreground"
+              isActive
+                ? "text-primary-600 border rounded-md"
+                : "text-foreground"
             } mx-auto w-full text-center flex h-full items-center hover:text-primary-600 transition-all`}
           >
             <div className="content-center text-center mx-3 shrink-0">

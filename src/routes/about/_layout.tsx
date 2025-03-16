@@ -16,11 +16,13 @@ function RouteComponent() {
       <div className="flex bg-background min-h-screen">
         <Sidebar />
         <div
-          className={`w-full px-2 transition-[width,margin] ease-in-out duration-1000 ${sidebarStatus === "open" && "md:mr-sidebar-distance pr-0 md:w-content"}`}
+          className={`w-full transition-[width,margin] ease-in-out duration-1000 ${sidebarStatus === "open" && "md:mr-sidebar-distance md:w-content"}`}
         >
           <div>
             <Header />
-            <Outlet />
+            <div className="p-2 h-full bg-white">
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>

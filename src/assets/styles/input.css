@@ -1,0 +1,82 @@
+/** ---------- Input Styles ---------- **/
+.default-input-wrapper {
+  @apply flex gap-4 items-center;
+}
+
+.default-input-wrapper,
+.date-container {
+  @apply relative;
+}
+
+.default-input-row > input,
+.date-container > input {
+  @apply !h-input bg-input-bg text-input-txt px-input outline-none w-full transition-colors duration-200 border border-gray-400;
+}
+
+.default-input-row > input:hover,
+.date-container > input:hover {
+  @apply bg-input-bg-hover;
+}
+
+.default-input-row > input:focus,
+.date-container > input:focus {
+  @apply bg-input-bg-focus;
+}
+
+/** ---------- input-loading Styles ---------- **/
+.default-input-loading {
+  @apply absolute w-full bg-white/80 content-center top-0 h-full rounded-sm fade-in-45;
+}
+
+.default-input-wrapper {
+  @apply grid lg:flex gap-1 items-center w-full;
+}
+
+.default-input-row {
+  @apply relative flex gap-2 items-center w-full text-nowrap overflow-ellipsis overflow-hidden p-0.5;
+}
+.default-input-after {
+  @apply text-2xs shrink-0;
+}
+.default-input-row input {
+  width: 100%;
+  box-sizing: border-box;
+  @apply !min-h-[30px] h-[30px]  border border-slate-300 rounded-[0.25rem];
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  @apply !min-h-[30px] !max-h-[300px] bg-gradient-to-b from-slate-100 to-white border border-slate-300 rounded-[0.25rem];
+}
+
+.default-inside-wrapper {
+  display: grid;
+  width: 100%;
+}
+
+.default-input-title {
+  @apply w-auto lg:w-input-title shrink-0 px-2 text-end lg:text-start;
+  direction: ltr;
+}
+
+.default-input-after:empty {
+  display: none;
+}
+
+.default-inside-wrapper-checkbox {
+  @apply flex w-full items-center gap-2;
+}
+
+.default-checkbox-wrapper {
+  @apply flex items-center gap-1;
+}
+
+.default-checkbox-before {
+  @apply w-44 shrink-0;
+}
+
+.css-b62m3t-container {
+  overflow: hidden;
+  padding-top: 1px;
+}

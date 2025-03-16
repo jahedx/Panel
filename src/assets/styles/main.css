@@ -80,7 +80,7 @@
 
     /* Semantic colors that update with theme */
     --background: #f8f7fc;
-    --background-secondary: #efecf8;
+    --background-secondary: #f6fafb;
     --card: #ffffff;
     --border: #d7d0f1;
     --foreground: #2d2938;
@@ -89,6 +89,18 @@
     --ring: rgba(110, 70, 230, 0.5);
     --shadow: rgba(110, 70, 230, 0.1);
     --overlay: rgba(45, 41, 56, 0.6);
+
+    /* Neutral colors */
+    --color-neutral-50: #f7f7f8;
+    --color-neutral-100: #eeeef0;
+    --color-neutral-200: #d9d9dd;
+    --color-neutral-300: #c0c0c7;
+    --color-neutral-400: #8e8e98;
+    --color-neutral-500: #6f6f78;
+    --color-neutral-600: #51515c;
+    --color-neutral-700: #3c3c44;
+    --color-neutral-800: #27272e;
+    --color-neutral-900: #18181b;
   }
 
   .dark {
@@ -108,5 +120,30 @@
     --color-foreground: #f2f0f9; /* Dark primary text */
     --color-foreground-secondary: #b3afbf; /* Dark secondary text */
     --color-muted: #6e697c; /* Dark disabled text */
+
+    /* Dark mode neutral colors */
+    --color-neutral-50: #18181b; /* Reversed for dark mode */
+    --color-neutral-100: #27272e;
+    --color-neutral-200: #3c3c44;
+    --color-neutral-300: #51515c;
+    --color-neutral-400: #6f6f78;
+    --color-neutral-500: #8e8e98;
+    --color-neutral-600: #c0c0c7;
+    --color-neutral-700: #d9d9dd;
+    --color-neutral-800: #eeeef0;
+    --color-neutral-900: #f7f7f8;
+
+    /* Dark mode primary colors - adjusted for better visibility */
+    --color-primary-50: #1a1729; /* Darker background */
+    --color-primary-100: #251f3b;
+    --color-primary-200: #332b4f;
+    --color-primary-300: #453a69;
+    --color-primary-400: #6e46e6; /* Main brand color */
+    --color-primary-500: #8d6eef; /* Brighter for dark mode */
+    --color-primary-600: #a992f5;
+    --color-primary-700: #c4b3f8;
+    --color-primary-800: #e2d9fc;
+    --color-primary-900: #f4f0fe; /* Lightest shade */
   }
 }
+/* Dark mode neutral colors */
