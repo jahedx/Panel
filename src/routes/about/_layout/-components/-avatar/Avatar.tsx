@@ -6,20 +6,30 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const Avatar = () => {
+interface AvatarProps {
+  isCollapsed?: boolean;
+}
+
+const Avatar = ({ isCollapsed }: AvatarProps) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="w-full bg-background-secondary hover:bg-background-secondary/80 rounded-xl transition-colors cursor-pointer p-3 flex items-center gap-3">
+      <DropdownMenuTrigger
+        className={`w-full h-12 bg-background-secondary hover:bg-background-secondary/80  transition-colors cursor-pointer ${isCollapsed ? "p-1 rounded-full" : "p-3 rounded-xl"} flex items-center gap-3`}
+      >
         <img
           src="https://img.a.transfermarkt.technology/portrait/header/14421-1719153884.jpg?lm=1"
           className="rounded-full h-10 w-10 object-cover ring-2 ring-border"
           alt="User avatar"
         />
-        <div className="flex-1 text-right">
-          <h1 className="font-bold text-foreground">داود بکام نژاد</h1>
-          <p className="text-sm text-foreground-secondary">مدیر</p>
-        </div>
-        <ChevronUpIcon className="text-lg text-foreground-secondary hover:text-primary-600 transition-colors" />
+        {!isCollapsed && (
+          <>
+            <div className="flex-1 text-right">
+              <h1 className="font-bold text-foreground">داود بکام نژاد</h1>
+              <p className="text-sm text-foreground-secondary">مدیر</p>
+            </div>
+            <ChevronUpIcon className="text-lg text-foreground-secondary hover:text-primary-600 transition-colors" />
+          </>
+        )}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-64 p-2 bg-card border border-border">
         <DropdownMenuItem className="flex items-center gap-2 rounded-lg hover:bg-background-secondary">

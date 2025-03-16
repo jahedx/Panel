@@ -1,19 +1,21 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 
 type SidebarStatus = "open" | "closed";
 
 export type SidebarContextProps = {
   sidebarStatus?: SidebarStatus;
-  smallSidebarStatus?: SidebarStatus;
+  isCollapsed?: boolean;
   toggleSidebar?: () => void;
+  toggleCollapse?: () => void;
   closeSidebar?: () => void;
 };
 
 const defaultContextValue: SidebarContextProps = {
   sidebarStatus: "closed",
-  smallSidebarStatus: "closed",
+  isCollapsed: false,
   toggleSidebar: () => {},
+  toggleCollapse: () => {},
   closeSidebar: () => {},
 };
 
@@ -26,34 +28,54 @@ interface SidebarProviderProps {
 
 export const SidebarProvider = ({ children }: SidebarProviderProps) => {
   const [sidebarStatus, setSidebarStatus] = useState<SidebarStatus>("open");
-  const [smallSidebarStatus, setSmallSidebarStatus] =
-    useState<SidebarStatus>("closed");
-  const toggleSidebar = () => {
-    const newStatus: SidebarStatus =
-      sidebarStatus === "closed" ? "open" : "closed";
-    setSidebarStatus(newStatus);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-    const newSmaillSidebarStatus: SidebarStatus =
-      smallSidebarStatus === "closed" ? "open" : "closed";
-    setSmallSidebarStatus(newSmaillSidebarStatus);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const handleResize = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        // Small screen - close sidebar
+        setSidebarStatus("closed");
+        setIsCollapsed(false);
+      } else {
+        // Large screen - open sidebar
+        setSidebarStatus("open");
+      }
+    };
+
+    handleResize(mediaQuery);
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  }, []);
+
+  const toggleCollapse = () => {
+    if (window.innerWidth >= 768) {
+      setIsCollapsed((prev) => !prev);
+    }
+  };
+
+  const toggleSidebar = () => {
+    if (window.innerWidth < 768) {
+      setSidebarStatus((prev) => (prev === "closed" ? "open" : "closed"));
+    }
   };
 
   const closeSidebar = () => {
     setSidebarStatus("closed");
-    setSmallSidebarStatus("closed");
   };
 
   const contextValue: SidebarContextProps = {
-    smallSidebarStatus,
     sidebarStatus,
+    isCollapsed,
     toggleSidebar,
+    toggleCollapse,
     closeSidebar,
   };
 
   return (
     <SidebarContext.Provider value={contextValue}>
-      {" "}
-      {children}{" "}
+      {children}
     </SidebarContext.Provider>
   );
 };

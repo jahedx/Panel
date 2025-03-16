@@ -10,22 +10,24 @@ export const Route = createFileRoute("/about/_layout")({
 });
 
 function RouteComponent() {
-  const { sidebarStatus } = useContext<SidebarContextProps>(SidebarContext);
+  const { sidebarStatus, isCollapsed } =
+    useContext<SidebarContextProps>(SidebarContext);
   return (
-    <>
-      <div className="flex bg-background min-h-screen">
-        <Sidebar />
-        <div
-          className={`w-full transition-[width,margin] ease-in-out duration-1000 ${sidebarStatus === "open" && "md:mr-sidebar-distance md:w-content"}`}
-        >
-          <div>
-            <Header />
-            <div className="p-2 h-full bg-white">
-              <Outlet />
-            </div>
+    <div className="flex bg-background min-h-screen">
+      <Sidebar />
+      <div
+        className={`w-full transition-[width,margin] ease-in-out duration-1000 ${
+          sidebarStatus === "open" &&
+          (isCollapsed ? "md:mr-16" : "md:mr-sidebar-distance md:w-content")
+        }`}
+      >
+        <div>
+          <Header />
+          <div className="p-2 h-full bg-white">
+            <Outlet />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

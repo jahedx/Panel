@@ -17,43 +17,51 @@ type Props = {
   dataTest?: string;
 };
 
-function SidebarItem({ icon, name, link, onClick }: Props) {
+function SidebarItem({
+  icon,
+  name,
+  link,
+  onClick,
+  collapsed,
+}: Props & { collapsed?: boolean }) {
   const location = useLocation();
   const isActive = location.pathname === link;
 
   return (
-    <>
-      <Link
-        to={link ?? "#"}
-        onClick={(event: unknown) => {
-          if (onClick)
-            onClick(event as unknown as React.MouseEvent<HTMLAnchorElement>);
-        }}
+    <Link
+      to={link ?? "#"}
+      onClick={(event: unknown) => {
+        if (onClick)
+          onClick(event as unknown as React.MouseEvent<HTMLAnchorElement>);
+      }}
+    >
+      <div
+        className={`rounded-md w-full h-10 transition-all ${
+          isActive
+            ? "bg-background-secondary shadow-sm"
+            : "hover:bg-background-secondary/50"
+        }`}
       >
         <div
-          className={`[&>svg]:hidden rounded-md w-full h-10 transition-all ${
-            isActive
-              ? "bg-background-secondary shadow-sm"
-              : "hover:bg-background-secondary/50"
-          }`}
+          className={`${
+            isActive ? "text-primary-600 border rounded-md" : "text-foreground"
+          } mx-auto w-full text-center flex h-full items-center hover:text-primary-600 transition-all overflow-hidden`}
         >
+          <div className={`content-center text-center mx-3 shrink-0`}>
+            {icon}
+          </div>
           <div
-            className={`${
-              isActive
-                ? "text-primary-600 border rounded-md"
-                : "text-foreground"
-            } mx-auto w-full text-center flex h-full items-center hover:text-primary-600 transition-all`}
+            className={`font-semibold whitespace-nowrap transition-all duration-1000 ease-in-out ${
+              collapsed
+                ? "translate-x-10 opacity-0"
+                : "translate-x-0 opacity-100"
+            }`}
           >
-            <div className="content-center text-center mx-3 shrink-0">
-              {icon}
-            </div>
-            <div className="font-semibold">
-              <p>{name}</p>
-            </div>
+            <p>{name}</p>
           </div>
         </div>
-      </Link>
-    </>
+      </div>
+    </Link>
   );
 }
 

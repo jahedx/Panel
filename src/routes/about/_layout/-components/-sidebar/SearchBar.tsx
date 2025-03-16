@@ -1,14 +1,18 @@
 import ValidationComponent from "@/components/ValidationComponent";
 import { inputConfigs } from "@/configs/input/default";
 import { Input, useInput } from "input-master";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { SidebarContext } from "@/contexts/SidebarContext";
 
 const SearchBar = () => {
   const { useRegister } = useInput();
   const [searchWord, setSearchWord] = useState<string>("");
+  const { sidebarStatus } = useContext(SidebarContext);
 
   return (
-    <div className=" m-4 rounded-md ">
+    <div
+      className={`m-4 rounded-md ${sidebarStatus === "closed" ? "hidden" : ""}`}
+    >
       <Input
         {...inputConfigs()}
         placeholder={"جستجو"}
@@ -23,7 +27,7 @@ const SearchBar = () => {
         onChange={(e) => setSearchWord(e.target.value)}
         required
       />
-      {searchWord}
+      {sidebarStatus === "open" && searchWord}
     </div>
   );
 };
