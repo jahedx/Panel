@@ -74,7 +74,6 @@ const checkboxCs: ComponentDescriptor = {
 export const inputConfigs = () => {
   return {
     fullWidth: true,
-    unstyled: true,
     classNamePrefix: "default-input-select",
     loadingClassName: "default-input-loading",
     disabledClassName: "default-input-disabled opacity-50",

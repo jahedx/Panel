@@ -2,6 +2,12 @@
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  experimental: {
+    applyComplexClasses: true,
+  },
   theme: {
     extend: {
       colors: {
@@ -18,13 +24,15 @@ export default {
           900: "var(--color-primary-900)",
         },
         // Theme colors
-        background: "var(--background)",
-        "background-secondary": "var(--background-secondary)",
-        card: "var(--card)",
-        border: "var(--border)",
-        foreground: "var(--foreground)",
-        "foreground-secondary": "var(--foreground-secondary)",
-        muted: "var(--muted)",
+        background: "rgb(var(--background) / <alpha-value>)",
+        "background-secondary":
+          "rgb(var(--background-secondary) / <alpha-value>)",
+        card: "rgb(var(--card) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        "foreground-secondary":
+          "rgb(var(--foreground-secondary) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
         "input-bg": "var(--input-bg, white)",
         "input-bg-hover": "var(--input-bg-hover, #f8f9fa)",
         "input-bg-focus": "var(--input-bg-focus, white)",

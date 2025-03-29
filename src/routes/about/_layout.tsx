@@ -23,7 +23,7 @@ function RouteComponent() {
       >
         <div>
           <Header />
-          <div className="p-2 h-full bg-white">
+          <div className="p-2 h-full">
             <Outlet />
           </div>
         </div>

@@ -79,13 +79,13 @@
     --color-secondary: #a992f5;
 
     /* Semantic colors that update with theme */
-    --background: #f8f7fc;
-    --background-secondary: #f6fafb;
-    --card: #ffffff;
-    --border: #d7d0f1;
-    --foreground: #2d2938;
-    --foreground-secondary: #5f5a6e;
-    --muted: #9994a7;
+    --background: 248 247 252; /* #f8f7fc */
+    --background-secondary: 246 250 251; /* #f6fafb */
+    --card: 255 255 255; /* #ffffff */
+    --border: 215 208 241; /* #d7d0f1 */
+    --foreground: 45 41 56; /* #2d2938 */
+    --foreground-secondary: 95 90 110; /* #5f5a6e */
+    --muted: 153 148 167; /* #9994a7 */
     --ring: rgba(110, 70, 230, 0.5);
     --shadow: rgba(110, 70, 230, 0.1);
     --overlay: rgba(45, 41, 56, 0.6);
@@ -104,15 +104,13 @@
   }
 
   .dark {
-    --background: #171525;
-    --background-secondary: #232133;
-    --card: #2d2a3c;
-    --border: #3d3953;
-    --foreground: #f2f0f9;
-    --foreground-secondary: #b3afbf;
-    --muted: #6e697c;
-    --ring: rgba(141, 110, 239, 0.6);
-    --shadow: rgba(0, 0, 0, 0.25);
+    --background: 23 21 37; /* #171525 */
+    --background-secondary: 35 33 51; /* #232133 */
+    --card: 45 42 60; /* #2d2a3c */
+    --border: 61 57 83; /* #3d3953 */
+    --foreground: 242 240 249; /* #f2f0f9 */
+    --foreground-secondary: 179 175 191; /* #b3afbf */
+    --muted: 110 105 124; /* #6e697c */
     --color-background: #171525; /* Dark main background */
     --color-background-secondary: #232133; /* Dark secondary background */
     --color-card: #2d2a3c; /* Dark card background */

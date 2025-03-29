@@ -10,22 +10,22 @@
 
 .default-input-row > input,
 .date-container > input {
-  @apply !h-input bg-input-bg text-input-txt px-input outline-none w-full transition-colors duration-200 border border-gray-400;
+  @apply !h-input bg-card text-foreground px-input outline-none w-full transition-colors duration-200 border border-border rounded-md;
 }
 
 .default-input-row > input:hover,
 .date-container > input:hover {
-  @apply bg-input-bg-hover;
+  @apply bg-background-secondary;
 }
 
 .default-input-row > input:focus,
 .date-container > input:focus {
-  @apply bg-input-bg-focus;
+  @apply bg-card ring-2 ring-primary-400;
 }
 
 /** ---------- input-loading Styles ---------- **/
 .default-input-loading {
-  @apply absolute w-full bg-white/80 content-center top-0 h-full rounded-sm fade-in-45;
+  @apply absolute w-full bg-background bg-opacity-80 content-center top-0 h-full rounded-md fade-in-45;
 }
 
 .default-input-wrapper {
@@ -35,19 +35,21 @@
 .default-input-row {
   @apply relative flex gap-2 items-center w-full text-nowrap overflow-ellipsis overflow-hidden p-0.5;
 }
+
 .default-input-after {
-  @apply text-2xs shrink-0;
+  @apply text-2xs shrink-0 text-foreground-secondary;
 }
+
 .default-input-row input {
   width: 100%;
   box-sizing: border-box;
-  @apply !min-h-[30px] h-[30px]  border border-slate-300 rounded-[0.25rem];
+  @apply !min-h-[30px] h-[30px] border border-border rounded-md bg-card text-foreground;
 }
 
 textarea {
   width: 100%;
   box-sizing: border-box;
-  @apply !min-h-[30px] !max-h-[300px] bg-gradient-to-b from-slate-100 to-white border border-slate-300 rounded-[0.25rem];
+  @apply !min-h-[30px] !max-h-[300px] bg-card text-foreground border border-border rounded-md;
 }
 
 .default-inside-wrapper {
@@ -56,7 +58,7 @@ textarea {
 }
 
 .default-input-title {
-  @apply w-auto lg:w-input-title shrink-0 px-2 text-end lg:text-start;
+  @apply w-auto lg:w-input-title shrink-0 px-2 text-end lg:text-start text-foreground-secondary;
   direction: ltr;
 }
 
@@ -76,7 +78,159 @@ textarea {
   @apply w-44 shrink-0;
 }
 
-.css-b62m3t-container {
-  overflow: hidden;
-  padding-top: 1px;
+/** Date Picker Styles **/
+.rmdp-wrapper {
+  @apply !bg-foreground/[0.01] !text-foreground rounded-md backdrop-blur-lg border border-border;
+}
+
+.rmdp-header-values {
+  @apply !text-foreground;
+}
+
+.rmdp-arrow {
+  @apply border !mx-auto !self-center object-center !border-foreground border-opacity-50 p-[3px] mb-1;
+  border-width: 0 1px 1px 0;
+}
+
+.rmdp-arrow-container:hover {
+  @apply !bg-primary-500;
+}
+
+.rmdp-shadow {
+  @apply !shadow-none;
+}
+
+.rmdp-week-day {
+  @apply bg-foreground/10 first:rounded-l-md !text-primary-500 last:rounded-r-md text-foreground text-opacity-80 font-normal;
+}
+
+.rmdp-day {
+  @apply !text-foreground;
+}
+
+.rmdp-day.rmdp-today span {
+  @apply !bg-primary-700 !text-background border border-foreground border-opacity-20;
+}
+
+.rmdp-day:not(.rmdp-day-hidden) span:hover {
+  @apply !bg-foreground/30;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  @apply !bg-primary-500 bg-opacity-90 text-background hover:bg-foreground !shadow-none;
+}
+
+.rmdp-month-picker,
+.rmdp-year-picker {
+  @apply !bg-foreground/0;
+}
+
+.rmdp-day-picker[data-active="false"] {
+  @apply opacity-0;
+}
+
+/** Utilities **/
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  @apply hidden;
+}
+
+/* /////////////////////////////////// */
+
+/** Select Component Styles **/
+.filter__control {
+  @apply relative appearance-none w-full px-input outline-none !min-h-[30px] text-sm rounded-md 
+         bg-background/5 border-foreground/15 border backdrop-blur-[2px] 
+         transition-all duration-300 ease-in-out;
+}
+
+.filter__control:hover {
+  @apply bg-foreground/5;
+}
+
+.filter__control--is-focused {
+  @apply bg-foreground/5 border-opacity-25;
+}
+
+.filter__control .filter__value-container {
+  @apply pt-3;
+}
+
+.select-not-valid .filter__control {
+  @apply !border-rose-500/50 border;
+}
+
+/* Select Menu Styles */
+.filter__menu {
+  @apply !bg-foreground/[0.01] backdrop-blur-xl z-20 px-1 border rounded-md mt-1;
+}
+
+.filter__menu-portal {
+  @apply z-[200] !important;
+}
+
+.filter__option {
+  @apply my-1 rounded-md !text-xs text-foreground/70 font-light px-2.5 py-1.5;
+}
+
+.filter__option--is-selected {
+  @apply bg-foreground/5 text-foreground/80;
+}
+
+.filter__option--is-focused {
+  @apply bg-foreground/10;
+}
+
+/* Multi-select Styles */
+.filter__multi-value {
+  @apply !bg-foreground/10 gap-1 pl-1 h-min text-2xs rounded-md leading-none;
+}
+
+.filter__value-container--is-multi {
+  @apply gap-1 mt-1 leading-none !items-start;
+}
+
+.filter__multi-value__label {
+  @apply content-center py-0.5 leading-none pt-1;
+}
+
+.filter__multi-value__remove {
+  @apply bg-foreground/5 hover:bg-foreground/10 transition-colors px-1 py-0.5 rounded-r-md;
+}
+
+/* Hover and Focus States */
+.default-input-wrapper > input:hover,
+.default-input-wrapper > textarea:hover,
+.date-container > input:hover {
+  @apply bg-foreground/5;
+}
+
+.default-input-wrapper > input:focus,
+.default-input-wrapper > textarea:focus,
+.date-container > input:focus {
+  @apply bg-foreground/5 border-opacity-25;
+}
+
+.default-input-not-valid {
+  @apply !border-rose-500/50 border;
+}
+
+/** Input Title Animations **/
+.default-input-wrapper .default-input-title {
+  @apply font-normal absolute right-0 z-10 cursor-text pointer-events-none px-3 text-right overflow-hidden whitespace-nowrap truncate;
+  @apply text-[13px] !top-[21px] !leading-[100%] !transform -translate-y-1/2;
+  @apply transition-all duration-100 ease-in-out;
+}
+
+/* Title Movement States */
+.default-input-wrapper > input:focus + .default-input-title,
+.default-input-wrapper > input.dirty + .default-input-title,
+.default-input-wrapper > input:not(:placeholder-shown) + .default-input-title,
+.default-input-wrapper > textarea:focus + .default-input-title,
+.default-input-wrapper > textarea.dirty + .default-input-title,
+.default-input-wrapper
+  > textarea:not(:placeholder-shown)
+  + .default-input-title,
+.has-value > .default-input-title {
+  @apply top-3 text-xs;
 }
