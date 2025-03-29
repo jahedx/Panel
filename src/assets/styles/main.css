@@ -37,7 +37,7 @@
   body {
     font-family:
       IranSans, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif !important;
-    @apply text-base  text-foreground bg-background;
+    @apply text-base text-foreground bg-background;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -59,56 +59,89 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    /* Base colors that don't change with theme */
+    --color-primary-50: #f4f0fe;
+    --color-primary-100: #e9e0fd;
+    --color-primary-200: #d3c1fb;
+    --color-primary-300: #b99ff7;
+    --color-primary-400: #9e78f2;
+    --color-primary-500: #8d6eef;
+    --color-primary-600: #6e46e6;
+    --color-primary-700: #5935c3;
+    --color-primary-800: #472e9c;
+    --color-primary-900: #2d2938;
+
+    --color-success: #4ac07e;
+    --color-warning: #f9b84a;
+    --color-error: #e5484d;
+    --color-info: #3ec0f0;
+    --color-accent: #8d6eef;
+    --color-secondary: #a992f5;
+
+    /* Semantic colors that update with theme */
+    --background: 248 247 252; /* #f8f7fc */
+    --background-secondary: 246 250 251; /* #f6fafb */
+    --card: 255 255 255; /* #ffffff */
+    --border: 215 208 241; /* #d7d0f1 */
+    --foreground: 45 41 56; /* #2d2938 */
+    --foreground-secondary: 95 90 110; /* #5f5a6e */
+    --muted: 153 148 167; /* #9994a7 */
+    --ring: rgba(110, 70, 230, 0.5);
+    --shadow: rgba(110, 70, 230, 0.1);
+    --overlay: rgba(45, 41, 56, 0.6);
+
+    /* Neutral colors */
+    --color-neutral-50: #f7f7f8;
+    --color-neutral-100: #eeeef0;
+    --color-neutral-200: #d9d9dd;
+    --color-neutral-300: #c0c0c7;
+    --color-neutral-400: #8e8e98;
+    --color-neutral-500: #6f6f78;
+    --color-neutral-600: #51515c;
+    --color-neutral-700: #3c3c44;
+    --color-neutral-800: #27272e;
+    --color-neutral-900: #18181b;
   }
+
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: 23 21 37; /* #171525 */
+    --background-secondary: 35 33 51; /* #232133 */
+    --card: 45 42 60; /* #2d2a3c */
+    --border: 61 57 83; /* #3d3953 */
+    --foreground: 242 240 249; /* #f2f0f9 */
+    --foreground-secondary: 179 175 191; /* #b3afbf */
+    --muted: 110 105 124; /* #6e697c */
+    --color-background: #171525; /* Dark main background */
+    --color-background-secondary: #232133; /* Dark secondary background */
+    --color-card: #2d2a3c; /* Dark card background */
+    --color-border: #3d3953; /* Dark border color */
+    --color-foreground: #f2f0f9; /* Dark primary text */
+    --color-foreground-secondary: #b3afbf; /* Dark secondary text */
+    --color-muted: #6e697c; /* Dark disabled text */
+
+    /* Dark mode neutral colors */
+    --color-neutral-50: #18181b; /* Reversed for dark mode */
+    --color-neutral-100: #27272e;
+    --color-neutral-200: #3c3c44;
+    --color-neutral-300: #51515c;
+    --color-neutral-400: #6f6f78;
+    --color-neutral-500: #8e8e98;
+    --color-neutral-600: #c0c0c7;
+    --color-neutral-700: #d9d9dd;
+    --color-neutral-800: #eeeef0;
+    --color-neutral-900: #f7f7f8;
+
+    /* Dark mode primary colors - adjusted for better visibility */
+    --color-primary-50: #1a1729; /* Darker background */
+    --color-primary-100: #251f3b;
+    --color-primary-200: #332b4f;
+    --color-primary-300: #453a69;
+    --color-primary-400: #6e46e6; /* Main brand color */
+    --color-primary-500: #8d6eef; /* Brighter for dark mode */
+    --color-primary-600: #a992f5;
+    --color-primary-700: #c4b3f8;
+    --color-primary-800: #e2d9fc;
+    --color-primary-900: #f4f0fe; /* Lightest shade */
   }
 }
+/* Dark mode neutral colors */

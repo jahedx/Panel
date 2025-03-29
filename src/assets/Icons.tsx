@@ -3,11 +3,42 @@ type Props = {
   size?: number;
   stroke?: number;
 };
+const DEFAULT_SIZE: number = 20;
+const DEFAULT_STROKE_WIDTH: number = 2;
 
+export function LoadingIcon({
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+  className,
+}: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid"
+      width={size}
+      height={size}
+      className={`${className} animate-spin`}
+    >
+      <g>
+        <circle
+          strokeDasharray="164.93361431346415 56.97787143782138"
+          r="35"
+          strokeWidth={stroke}
+          stroke="currentColor"
+          fill="none"
+          cy="50"
+          cx="50"
+        ></circle>
+        <g />
+      </g>
+    </svg>
+  );
+}
 export function ArrowRightToLineIcon({
   className,
-  size = 24,
-  stroke = 2,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
 }: Props) {
   return (
     <svg
@@ -28,7 +59,11 @@ export function ArrowRightToLineIcon({
     </svg>
   );
 }
-export function LogoutIcon({ className, size = 24, stroke = 2 }: Props) {
+export function LogoutIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +83,11 @@ export function LogoutIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function PanelRighIcon({ className, size = 24, stroke = 2 }: Props) {
+export function PanelRighIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +106,11 @@ export function PanelRighIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function HouseIcon({ className, size = 24, stroke = 2 }: Props) {
+export function HouseIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +129,11 @@ export function HouseIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function SlackIcon({ className, size = 24, stroke = 2 }: Props) {
+export function SlackIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +158,11 @@ export function SlackIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function SearchIcon({ className, size = 24, stroke = 2 }: Props) {
+export function SearchIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -132,8 +183,8 @@ export function SearchIcon({ className, size = 24, stroke = 2 }: Props) {
 }
 export function PanelsRightBottomIcon({
   className,
-  size = 24,
-  stroke = 2,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
 }: Props) {
   return (
     <svg
@@ -154,7 +205,11 @@ export function PanelsRightBottomIcon({
     </svg>
   );
 }
-export function ChevronUpIcon({ className, size = 24, stroke = 2 }: Props) {
+export function ChevronUpIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +227,11 @@ export function ChevronUpIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function ChevronRightIcon({ className, size = 24, stroke = 2 }: Props) {
+export function ChevronRightIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +249,11 @@ export function ChevronRightIcon({ className, size = 24, stroke = 2 }: Props) {
     </svg>
   );
 }
-export function CalendarIcon({ className, size = 24, stroke = 2 }: Props) {
+export function CalendarIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
