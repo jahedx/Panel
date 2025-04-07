@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 import Header from "./_layout/-components/-header/Header";
 
-export const Route = createFileRoute("/about/_layout")({
+export const Route = createFileRoute("/dashboard/_layout")({
   component: RouteComponent,
 });
 

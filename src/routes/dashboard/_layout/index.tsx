@@ -3,7 +3,7 @@ import { inputConfigs } from "@/configs/input/default";
 import { createFileRoute } from "@tanstack/react-router";
 import { Input, useInput } from "input-master";
 
-export const Route = createFileRoute("/about/_layout/")({
+export const Route = createFileRoute("/dashboard/_layout/")({
   component: RouteComponent,
 });
 

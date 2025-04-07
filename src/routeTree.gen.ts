@@ -14,19 +14,31 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
-import { Route as AboutLayoutImport } from './routes/about/_layout'
-import { Route as AboutLayoutIndexImport } from './routes/about/_layout/index'
-import { Route as AboutLayoutReadyIndexImport } from './routes/about/_layout/ready/index'
+import { Route as Error404Import } from './routes/error/404'
+import { Route as Error403Import } from './routes/error/403'
+import { Route as DashboardLayoutImport } from './routes/dashboard/_layout'
+import { Route as AuthLayoutImport } from './routes/auth/_layout'
+import { Route as DashboardLayoutIndexImport } from './routes/dashboard/_layout/index'
+import { Route as DashboardLayoutProfileIndexImport } from './routes/dashboard/_layout/profile/index'
+import { Route as DashboardLayoutNotificationsIndexImport } from './routes/dashboard/_layout/notifications/index'
+import { Route as AuthLayoutLoginIndexImport } from './routes/auth/_layout/login/index'
 
 // Create Virtual Routes
 
-const AboutImport = createFileRoute('/about')()
+const DashboardImport = createFileRoute('/dashboard')()
+const AuthImport = createFileRoute('/auth')()
 
 // Create/Update Routes
 
-const AboutRoute = AboutImport.update({
-  id: '/about',
-  path: '/about',
+const DashboardRoute = DashboardImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AuthRoute = AuthImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -36,21 +48,52 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AboutLayoutRoute = AboutLayoutImport.update({
-  id: '/_layout',
-  getParentRoute: () => AboutRoute,
+const Error404Route = Error404Import.update({
+  id: '/error/404',
+  path: '/error/404',
+  getParentRoute: () => rootRoute,
 } as any)
 
-const AboutLayoutIndexRoute = AboutLayoutIndexImport.update({
+const Error403Route = Error403Import.update({
+  id: '/error/403',
+  path: '/error/403',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardLayoutRoute = DashboardLayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => DashboardRoute,
+} as any)
+
+const AuthLayoutRoute = AuthLayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => AuthRoute,
+} as any)
+
+const DashboardLayoutIndexRoute = DashboardLayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AboutLayoutRoute,
+  getParentRoute: () => DashboardLayoutRoute,
 } as any)
 
-const AboutLayoutReadyIndexRoute = AboutLayoutReadyIndexImport.update({
-  id: '/ready/',
-  path: '/ready/',
-  getParentRoute: () => AboutLayoutRoute,
+const DashboardLayoutProfileIndexRoute =
+  DashboardLayoutProfileIndexImport.update({
+    id: '/profile/',
+    path: '/profile/',
+    getParentRoute: () => DashboardLayoutRoute,
+  } as any)
+
+const DashboardLayoutNotificationsIndexRoute =
+  DashboardLayoutNotificationsIndexImport.update({
+    id: '/notifications/',
+    path: '/notifications/',
+    getParentRoute: () => DashboardLayoutRoute,
+  } as any)
+
+const AuthLayoutLoginIndexRoute = AuthLayoutLoginIndexImport.update({
+  id: '/login/',
+  path: '/login/',
+  getParentRoute: () => AuthLayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -64,108 +107,222 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/about/_layout': {
-      id: '/about/_layout'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutLayoutImport
-      parentRoute: typeof AboutRoute
+    '/auth/_layout': {
+      id: '/auth/_layout'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthLayoutImport
+      parentRoute: typeof AuthRoute
     }
-    '/about/_layout/': {
-      id: '/about/_layout/'
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardImport
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/_layout': {
+      id: '/dashboard/_layout'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardLayoutImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/error/403': {
+      id: '/error/403'
+      path: '/error/403'
+      fullPath: '/error/403'
+      preLoaderRoute: typeof Error403Import
+      parentRoute: typeof rootRoute
+    }
+    '/error/404': {
+      id: '/error/404'
+      path: '/error/404'
+      fullPath: '/error/404'
+      preLoaderRoute: typeof Error404Import
+      parentRoute: typeof rootRoute
+    }
+    '/dashboard/_layout/': {
+      id: '/dashboard/_layout/'
       path: '/'
-      fullPath: '/about/'
-      preLoaderRoute: typeof AboutLayoutIndexImport
-      parentRoute: typeof AboutLayoutImport
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardLayoutIndexImport
+      parentRoute: typeof DashboardLayoutImport
     }
-    '/about/_layout/ready/': {
-      id: '/about/_layout/ready/'
-      path: '/ready'
-      fullPath: '/about/ready'
-      preLoaderRoute: typeof AboutLayoutReadyIndexImport
-      parentRoute: typeof AboutLayoutImport
+    '/auth/_layout/login/': {
+      id: '/auth/_layout/login/'
+      path: '/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLayoutLoginIndexImport
+      parentRoute: typeof AuthLayoutImport
+    }
+    '/dashboard/_layout/notifications/': {
+      id: '/dashboard/_layout/notifications/'
+      path: '/notifications'
+      fullPath: '/dashboard/notifications'
+      preLoaderRoute: typeof DashboardLayoutNotificationsIndexImport
+      parentRoute: typeof DashboardLayoutImport
+    }
+    '/dashboard/_layout/profile/': {
+      id: '/dashboard/_layout/profile/'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardLayoutProfileIndexImport
+      parentRoute: typeof DashboardLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface AboutLayoutRouteChildren {
-  AboutLayoutIndexRoute: typeof AboutLayoutIndexRoute
-  AboutLayoutReadyIndexRoute: typeof AboutLayoutReadyIndexRoute
+interface AuthLayoutRouteChildren {
+  AuthLayoutLoginIndexRoute: typeof AuthLayoutLoginIndexRoute
 }
 
-const AboutLayoutRouteChildren: AboutLayoutRouteChildren = {
-  AboutLayoutIndexRoute: AboutLayoutIndexRoute,
-  AboutLayoutReadyIndexRoute: AboutLayoutReadyIndexRoute,
+const AuthLayoutRouteChildren: AuthLayoutRouteChildren = {
+  AuthLayoutLoginIndexRoute: AuthLayoutLoginIndexRoute,
 }
 
-const AboutLayoutRouteWithChildren = AboutLayoutRoute._addFileChildren(
-  AboutLayoutRouteChildren,
+const AuthLayoutRouteWithChildren = AuthLayoutRoute._addFileChildren(
+  AuthLayoutRouteChildren,
 )
 
-interface AboutRouteChildren {
-  AboutLayoutRoute: typeof AboutLayoutRouteWithChildren
+interface AuthRouteChildren {
+  AuthLayoutRoute: typeof AuthLayoutRouteWithChildren
 }
 
-const AboutRouteChildren: AboutRouteChildren = {
-  AboutLayoutRoute: AboutLayoutRouteWithChildren,
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthLayoutRoute: AuthLayoutRouteWithChildren,
 }
 
-const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+
+interface DashboardLayoutRouteChildren {
+  DashboardLayoutIndexRoute: typeof DashboardLayoutIndexRoute
+  DashboardLayoutNotificationsIndexRoute: typeof DashboardLayoutNotificationsIndexRoute
+  DashboardLayoutProfileIndexRoute: typeof DashboardLayoutProfileIndexRoute
+}
+
+const DashboardLayoutRouteChildren: DashboardLayoutRouteChildren = {
+  DashboardLayoutIndexRoute: DashboardLayoutIndexRoute,
+  DashboardLayoutNotificationsIndexRoute:
+    DashboardLayoutNotificationsIndexRoute,
+  DashboardLayoutProfileIndexRoute: DashboardLayoutProfileIndexRoute,
+}
+
+const DashboardLayoutRouteWithChildren = DashboardLayoutRoute._addFileChildren(
+  DashboardLayoutRouteChildren,
+)
+
+interface DashboardRouteChildren {
+  DashboardLayoutRoute: typeof DashboardLayoutRouteWithChildren
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardLayoutRoute: DashboardLayoutRouteWithChildren,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutLayoutRouteWithChildren
-  '/about/': typeof AboutLayoutIndexRoute
-  '/about/ready': typeof AboutLayoutReadyIndexRoute
+  '/auth': typeof AuthLayoutRouteWithChildren
+  '/dashboard': typeof DashboardLayoutRouteWithChildren
+  '/error/403': typeof Error403Route
+  '/error/404': typeof Error404Route
+  '/dashboard/': typeof DashboardLayoutIndexRoute
+  '/auth/login': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/notifications': typeof DashboardLayoutNotificationsIndexRoute
+  '/dashboard/profile': typeof DashboardLayoutProfileIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutLayoutIndexRoute
-  '/about/ready': typeof AboutLayoutReadyIndexRoute
+  '/auth': typeof AuthLayoutRouteWithChildren
+  '/dashboard': typeof DashboardLayoutIndexRoute
+  '/error/403': typeof Error403Route
+  '/error/404': typeof Error404Route
+  '/auth/login': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/notifications': typeof DashboardLayoutNotificationsIndexRoute
+  '/dashboard/profile': typeof DashboardLayoutProfileIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/about': typeof AboutRouteWithChildren
-  '/about/_layout': typeof AboutLayoutRouteWithChildren
-  '/about/_layout/': typeof AboutLayoutIndexRoute
-  '/about/_layout/ready/': typeof AboutLayoutReadyIndexRoute
+  '/auth': typeof AuthRouteWithChildren
+  '/auth/_layout': typeof AuthLayoutRouteWithChildren
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/dashboard/_layout': typeof DashboardLayoutRouteWithChildren
+  '/error/403': typeof Error403Route
+  '/error/404': typeof Error404Route
+  '/dashboard/_layout/': typeof DashboardLayoutIndexRoute
+  '/auth/_layout/login/': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/_layout/notifications/': typeof DashboardLayoutNotificationsIndexRoute
+  '/dashboard/_layout/profile/': typeof DashboardLayoutProfileIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/about/' | '/about/ready'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/error/403'
+    | '/error/404'
+    | '/dashboard/'
+    | '/auth/login'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/about/ready'
+  to:
+    | '/'
+    | '/auth'
+    | '/dashboard'
+    | '/error/403'
+    | '/error/404'
+    | '/auth/login'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
   id:
     | '__root__'
     | '/'
-    | '/about'
-    | '/about/_layout'
-    | '/about/_layout/'
-    | '/about/_layout/ready/'
+    | '/auth'
+    | '/auth/_layout'
+    | '/dashboard'
+    | '/dashboard/_layout'
+    | '/error/403'
+    | '/error/404'
+    | '/dashboard/_layout/'
+    | '/auth/_layout/login/'
+    | '/dashboard/_layout/notifications/'
+    | '/dashboard/_layout/profile/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRouteWithChildren
+  AuthRoute: typeof AuthRouteWithChildren
+  DashboardRoute: typeof DashboardRouteWithChildren
+  Error403Route: typeof Error403Route
+  Error404Route: typeof Error404Route
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRouteWithChildren,
+  AuthRoute: AuthRouteWithChildren,
+  DashboardRoute: DashboardRouteWithChildren,
+  Error403Route: Error403Route,
+  Error404Route: Error404Route,
 }
 
 export const routeTree = rootRoute
@@ -179,33 +336,64 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about"
+        "/auth",
+        "/dashboard",
+        "/error/403",
+        "/error/404"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/about": {
-      "filePath": "about",
+    "/auth": {
+      "filePath": "auth",
       "children": [
-        "/about/_layout"
+        "/auth/_layout"
       ]
     },
-    "/about/_layout": {
-      "filePath": "about/_layout.tsx",
-      "parent": "/about",
+    "/auth/_layout": {
+      "filePath": "auth/_layout.tsx",
+      "parent": "/auth",
       "children": [
-        "/about/_layout/",
-        "/about/_layout/ready/"
+        "/auth/_layout/login/"
       ]
     },
-    "/about/_layout/": {
-      "filePath": "about/_layout/index.tsx",
-      "parent": "/about/_layout"
+    "/dashboard": {
+      "filePath": "dashboard",
+      "children": [
+        "/dashboard/_layout"
+      ]
     },
-    "/about/_layout/ready/": {
-      "filePath": "about/_layout/ready/index.tsx",
-      "parent": "/about/_layout"
+    "/dashboard/_layout": {
+      "filePath": "dashboard/_layout.tsx",
+      "parent": "/dashboard",
+      "children": [
+        "/dashboard/_layout/",
+        "/dashboard/_layout/notifications/",
+        "/dashboard/_layout/profile/"
+      ]
+    },
+    "/error/403": {
+      "filePath": "error/403.tsx"
+    },
+    "/error/404": {
+      "filePath": "error/404.tsx"
+    },
+    "/dashboard/_layout/": {
+      "filePath": "dashboard/_layout/index.tsx",
+      "parent": "/dashboard/_layout"
+    },
+    "/auth/_layout/login/": {
+      "filePath": "auth/_layout/login/index.tsx",
+      "parent": "/auth/_layout"
+    },
+    "/dashboard/_layout/notifications/": {
+      "filePath": "dashboard/_layout/notifications/index.tsx",
+      "parent": "/dashboard/_layout"
+    },
+    "/dashboard/_layout/profile/": {
+      "filePath": "dashboard/_layout/profile/index.tsx",
+      "parent": "/dashboard/_layout"
     }
   }
 }

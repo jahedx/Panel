@@ -25,14 +25,26 @@ const queryClient = new QueryClient({
   }),
   defaultOptions: {
     queries: {
-      retry: 0, // تعداد دفعات تلاش مجدد
-      refetchOnWindowFocus: false, // غیرفعال کردن درخواست در هنگام فوکوس
-      refetchOnReconnect: false, // جلوگیری از درخواست دوباره هنگام اتصال مجدد
+      retry: (failureCount, error) => {
+        if (error instanceof Error && error.message.includes("401")) {
+          return false;
+        }
+        return failureCount < 3;
+      },
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 30 * 60 * 1000, // 30 minutes
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
     },
   },
 });
 
-const router = createRouter({ routeTree });
+export const router = createRouter({
+  routeTree,
+  defaultPreload: "intent",
+  defaultPreloadStaleTime: 0,
+});
+
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
@@ -45,6 +57,6 @@ if (!rootElement.innerHTML) {
   root.render(
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </QueryClientProvider>,
+    </QueryClientProvider>
   );
 }

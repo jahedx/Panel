@@ -2,6 +2,8 @@
 import { DefaultError } from "@tanstack/react-query";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { router } from "@/main";
+import { clearTokens } from "./auth";
 
 // Define error types
 export enum ErrorType {
@@ -38,32 +40,28 @@ const getErrorType = (error: DefaultError): ErrorType => {
 const GetUserFriendlyMessage = (errorType: ErrorType): string => {
   switch (errorType) {
     case ErrorType.NETWORK:
-      return "error occured";
+      return "Network connection error. Please check your internet connection.";
     case ErrorType.AUTHENTICATION:
-      return "error occured";
+      return "Your session has expired. Please log in again.";
     case ErrorType.AUTHORIZATION:
-      return "error occured";
+      return "You don't have permission to perform this action.";
     case ErrorType.VALIDATION:
-      return "error occured";
+      return "Please check your input and try again.";
     case ErrorType.NOT_FOUND:
-      return "error occured";
+      return "The requested resource was not found.";
     case ErrorType.API:
-      return "error occured";
+      return "An unexpected error occurred. Please try again later.";
     default:
-      return "error occured";
+      return "An unexpected error occurred.";
   }
 };
 
 // Main error handling function
 export const handleError = (error: DefaultError) => {
-  if (
-    axios.isAxiosError(error) &&
-    error.response &&
-    error.response?.data?.messages?.length > 0
-  ) {
-    error.response?.data?.messages.forEach((err: string) => {
+  if (axios.isAxiosError(error) && error.response?.data?.messages?.length > 0) {
+    error.response!.data.messages.forEach((err: string) => {
       toast.error(err, {
-        id: "error-toast", // Assign an ID to the toast
+        id: "error-toast",
       });
     });
   } else {
@@ -75,13 +73,9 @@ export const handleError = (error: DefaultError) => {
 
 // Function to handle API errors specifically
 export const handleApiError = (error: DefaultError) => {
-  if (
-    axios.isAxiosError(error) &&
-    error.response &&
-    error.response?.status === 401
-  ) {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
+  if (axios.isAxiosError(error) && error.response?.status === 401) {
+    clearTokens();
+    router.navigate({ to: "/auth/login" });
   }
   return;
 };
