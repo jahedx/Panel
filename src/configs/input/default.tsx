@@ -1,117 +1,84 @@
-import { ComponentDescriptor } from "input-master";
-import { LoadingIcon } from "@/assets/Icons";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ComponentDescriptor, components, DefaultProps } from 'input-master';
+import { ChevronDown, X } from 'lucide-react';
+import ValidationComponent from '@/components/ValidationComponent';
 
-const cs = (): ComponentDescriptor => {
-  return {
-    type: "wrapper",
-    children: [
-      {
-        type: "title",
-      },
-      {
-        type: "other",
-        props: {
-          className: "default-inside-wrapper",
-        },
-        children: [
-          {
-            type: "other",
-            props: {
-              className: "default-input-row",
-            },
-            children: [
-              {
-                type: "input",
-              },
-              {
-                type: "loading",
-              },
-              {
-                type: "after",
-              },
-            ],
-          },
-          {
-            type: "validation",
-          },
-        ],
-      },
-    ],
-  };
-};
-
-const checkboxCs: ComponentDescriptor = {
-  type: "wrapper",
+const componentStructure: ComponentDescriptor = {
+  type: 'wrapper',
+  hasValueClassName: 'has-value',
   children: [
-    { type: "before" },
     {
-      type: "other",
-      props: {
-        className: "default-leftside-wrapper-checkbox w-full",
-      },
-      children: [
-        {
-          type: "other",
-          props: {
-            className: "default-inside-wrapper-checkbox",
-          },
-          children: [
-            {
-              type: "input",
-            },
-            {
-              type: "title",
-            },
-          ],
-        },
-        {
-          type: "validation",
-        },
-      ],
+      type: 'before',
+    },
+    {
+      type: 'input',
+    },
+    {
+      type: 'title',
+    },
+    {
+      type: 'loading',
+    },
+    {
+      type: 'after',
+    },
+    {
+      type: 'validation',
     },
   ],
 };
-export const inputConfigs = () => {
-  return {
-    fullWidth: true,
-    classNamePrefix: "default-input-select",
-    loadingClassName: "default-input-loading",
-    disabledClassName: "default-input-disabled opacity-50",
-    wrapperClassName: "default-input-wrapper",
-    notValidClassName: "default-input-not-valid",
-    afterClassName: "default-input-after",
-    beforeClassName: "",
-    titleClassName: "default-input-title",
-    validationOn: "submit",
-    portal: document.querySelector("body"),
-    componentStructure: cs(),
-    loadingObject: <LoadingIcon className="mr-4 text-gray-900 animate-spin" />,
-    noOptionsMessage: (
-      <div className="opacity-50 text-sm py-2">
-        {"مقداری برای انتخاب وجود ندارد"}
-      </div>
-    ),
-  };
+
+export const DropdownIndicator = (props: any) => {
+  return (
+    components.DropdownIndicator && (
+      <components.DropdownIndicator {...props}>
+        <ChevronDown
+          strokeWidth={1}
+          className={`${props.selectProps.menuIsOpen ? '-rotate-180' : ''} transition-transform duration-300`}
+          size={20}
+        />
+      </components.DropdownIndicator>
+    )
+  );
 };
 
-export const checkboxConfigs = () => {
-  return {
-    classNamePrefix: "default-checkbox-select",
-    loadingClassName: "default-checkbox-loading",
-    disabledClassName: "default-checkbox-disabled opacity-50 ",
-    wrapperClassName: "default-checkbox-wrapper",
-    notValidClassName: "default-checkbox-not-valid",
-    afterClassName: "default-checkbox-after",
-    beforeClassName: "default-checkbox-before",
-    titleClassName: "default-checkbox-title",
-    validationOn: "submit",
-    portal: document.querySelector("body"),
-    componentStructure: checkboxCs,
-    loadingObject: <LoadingIcon className="mr-4 text-gray-900 animate-spin" />,
-    noOptionsMessage: (
-      <div className="opacity-50 text-sm py-2">
-        {"مقداری برای انتخاب وجود ندارد"}
-      </div>
-    ),
-  };
+export const ClearIndicator = (props: any) => {
+  return (
+    components.ClearIndicator && (
+      <components.ClearIndicator {...props}>
+        <X strokeWidth={0.8} size={18} />
+      </components.ClearIndicator>
+    )
+  );
+};
+
+export const MultiValueRemove = (props: any) => {
+  return (
+    components.MultiValueRemove && (
+      <components.MultiValueRemove {...props}>
+        <X strokeWidth={1} size={15} className="cursor-pointer" />
+      </components.MultiValueRemove>
+    )
+  );
+};
+
+export const defaultInputProps: DefaultProps = {
+  unstyled: true,
+  loadingClassName: 'default-input-loading',
+  disabledClassName: 'default-input-disabled',
+  wrapperClassName: 'default-input-wrapper',
+  notValidClassName: 'default-input-not-valid',
+  afterClassName: 'default-input-after',
+  beforeClassName: 'default-input-before',
+  titleClassName: 'default-input-title',
+  componentStructure: componentStructure,
+  classNamePrefix: 'filter',
+  validationOn: 'submit-blur-change',
+  components: {
+    DropdownIndicator,
+    ClearIndicator,
+    MultiValueRemove,
+  },
+  validationComponent: ValidationComponent,
+  portal: document.querySelector('body'),
 };

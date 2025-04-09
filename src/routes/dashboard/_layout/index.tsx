@@ -1,9 +1,9 @@
-import ValidationComponent from "@/components/ValidationComponent";
-import { inputConfigs } from "@/configs/input/default";
-import { createFileRoute } from "@tanstack/react-router";
-import { Input, useInput } from "input-master";
+import ValidationComponent from '@/components/ValidationComponent';
+import { inputConfigs } from '@/lib/input_default_settings';
+import { createFileRoute } from '@tanstack/react-router';
+import { Input, useInput } from 'input-master';
 
-export const Route = createFileRoute("/dashboard/_layout/")({
+export const Route = createFileRoute('/dashboard/_layout/')({
   component: RouteComponent,
 });
 
@@ -44,8 +44,8 @@ function RouteComponent() {
       <Input
         type="select"
         options={[
-          { label: "male", value: 1 },
-          { label: "female", value: 2 },
+          { label: 'male', value: 1 },
+          { label: 'female', value: 2 },
         ]}
         title="Gender"
         placeholder=""
