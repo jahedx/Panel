@@ -1,44 +1,40 @@
 import { Button } from '@/components/ui/button';
 import { createFileRoute } from '@tanstack/react-router';
 import { Input, useInput } from 'input-master';
-import { useUsersLogin } from '../../../../services/iot-cloud-AAA/Authentication/useIotCloudAAAAuthentication';
+import { useUsersToken } from '../../../../services/iot-cloud-AAA/Authentication/useIotCloudAAAAuthentication';
 import { inputConfigs } from '@/lib/input_default_settings';
 import ValidationComponent from '@/components/ValidationComponent';
+import banner from '@/assets/images/login-banner.png';
+
 export const Route = createFileRoute('/auth/_layout/login/')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
   const { useRegister, submit } = useInput();
-  const query = useUsersLogin();
+  const query = useUsersToken();
 
-  const handleLogin = () => {
-    console.log('first');
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     submit(data => {
-      query.mutate(
-        {
-          username: data.username,
-          password: data.password,
-        },
-        {
-          onSuccess() {
-            console.log('first');
-          },
-        }
-      );
+      query.mutate({
+        username: data.username,
+        password: data.password,
+      });
     });
   };
 
   return (
-    <div>
-      <div>
-        <h1>Login</h1>
-
-        <div className="w-80 mx-auto border p-3 rounded-md ">
+    <div className="w-full grid lg:grid-cols-3 min-h-screen">
+      <div className="flex items-center justify-center lg:col-span-1">
+        <form
+          onSubmit={handleLogin}
+          className="flex flex-col gap-4 w-96 mx-auto h-64 my-auto px-8 py-4"
+        >
           <Input
             {...inputConfigs(true)}
             type="text"
-            title="Username"
+            title="نام کاربری"
             minLength={2}
             name="username"
             required
@@ -49,7 +45,7 @@ function RouteComponent() {
           <Input
             {...inputConfigs()}
             type="password"
-            title="Password *"
+            title="کلمه عبور*"
             required
             minLength={2}
             name="password"
@@ -60,10 +56,13 @@ function RouteComponent() {
             validationOn="submit"
             register={useRegister}
           />
-          <Button variant={'default'} onClick={handleLogin}>
+          <Button type="submit" className="mt-auto mb-8" variant={'default'}>
             ورود
           </Button>
-        </div>
+        </form>
+      </div>
+      <div className="lg:flex hidden h-screen col-span-2 border">
+        <img src={banner} alt="Login Banner" className="object-cover" />
       </div>
     </div>
   );

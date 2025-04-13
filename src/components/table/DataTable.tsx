@@ -125,7 +125,7 @@ export default function DataTable<T>({
           onClick={() => table.previousPage()}
           disabled={isLoading || !table.getCanPreviousPage()}
         >
-          <ChevronLeft className="w-4 h-4" />
+          <ChevronRight className="w-4 h-4" />
           قبلی
         </Button>
         <span className="text-sm">
@@ -141,7 +141,7 @@ export default function DataTable<T>({
           onClick={() => table.nextPage()}
           disabled={isLoading || !table.getCanNextPage()}
         >
-          <ChevronRight className="w-4 h-4" />
+          <ChevronLeft className="w-4 h-4" />
           بعدی
         </Button>
       </div>

@@ -41,7 +41,7 @@
 /** Input Title Animations **/
 .default-input-wrapper .default-input-title {
   @apply font-normal absolute right-0 z-10 cursor-text pointer-events-none px-3 text-left overflow-hidden whitespace-nowrap truncate;
-  @apply text-[13px] top-[21px] leading-[100%] transform -translate-y-1/2;
+  @apply text-[13px] top-[21px] leading-[100%] transform -translate-y-full;
   @apply transition-all duration-200 ease-in-out;
 }
 
@@ -53,7 +53,7 @@
 .default-input-wrapper > textarea.dirty + .default-input-title,
 .default-input-wrapper > textarea:not(:placeholder-shown) + .default-input-title,
 .has-value > .default-input-title {
-  @apply top-2 text-xs text-foreground/70;
+  @apply top-2 right-2 text-xs text-foreground/70 bg-background px-0.5;
 }
 
 /** Select Component Styles **/

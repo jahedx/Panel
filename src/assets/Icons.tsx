@@ -47,7 +47,7 @@ export function ArrowRightToLineIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -71,7 +71,7 @@ export function LogoutIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -95,7 +95,7 @@ export function PanelRighIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -118,7 +118,7 @@ export function HouseIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -141,7 +141,7 @@ export function SlackIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -170,7 +170,7 @@ export function SearchIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -193,7 +193,7 @@ export function PanelsRightBottomIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -217,7 +217,7 @@ export function ChevronUpIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -239,7 +239,7 @@ export function ChevronRightIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -261,7 +261,7 @@ export function CalendarIcon({
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      stroke={"currentColor"}
+      stroke={'currentColor'}
       strokeWidth={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"

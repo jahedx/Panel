@@ -1,23 +1,40 @@
 /* eslint-disable */
-import { DefaultError } from "@tanstack/react-query";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { router } from "@/main";
-import { clearTokens } from "./auth";
+import { DefaultError } from '@tanstack/react-query';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { router } from '@/main';
+import { clearTokens } from './auth';
+import { ApiError, isApiError } from '@/services/IotCloudPortal';
 
 // Define error types
 export enum ErrorType {
-  NETWORK = "NETWORK",
-  API = "API",
-  AUTHENTICATION = "AUTHENTICATION",
-  AUTHORIZATION = "AUTHORIZATION",
-  VALIDATION = "VALIDATION",
-  NOT_FOUND = "NOT_FOUND",
-  UNKNOWN = "UNKNOWN",
+  NETWORK = 'NETWORK',
+  API = 'API',
+  AUTHENTICATION = 'AUTHENTICATION',
+  AUTHORIZATION = 'AUTHORIZATION',
+  VALIDATION = 'VALIDATION',
+  NOT_FOUND = 'NOT_FOUND',
+  UNKNOWN = 'UNKNOWN',
 }
 
 // Function to determine error type
 const getErrorType = (error: DefaultError): ErrorType => {
+  if (isApiError(error)) {
+    switch (error.key) {
+      case 'user_not_found':
+        return ErrorType.NOT_FOUND;
+      case 'invalid_password':
+      case 'invalid_token':
+        return ErrorType.AUTHENTICATION;
+      case 'unauthorized':
+        return ErrorType.AUTHORIZATION;
+      case 'validation_error':
+        return ErrorType.VALIDATION;
+      default:
+        return ErrorType.API;
+    }
+  }
+
   if (axios.isAxiosError(error)) {
     if (!error.response) return ErrorType.NETWORK;
     switch (error.response.status) {
@@ -37,36 +54,46 @@ const getErrorType = (error: DefaultError): ErrorType => {
 };
 
 // Function to get user-friendly message
-const GetUserFriendlyMessage = (errorType: ErrorType): string => {
+const GetUserFriendlyMessage = (error: DefaultError): string => {
+  if (isApiError(error)) {
+    return error.message;
+  }
+
+  const errorType = getErrorType(error);
   switch (errorType) {
     case ErrorType.NETWORK:
-      return "Network connection error. Please check your internet connection.";
+      return 'Network connection error. Please check your internet connection.';
     case ErrorType.AUTHENTICATION:
-      return "Your session has expired. Please log in again.";
+      return 'Your session has expired. Please log in again.';
     case ErrorType.AUTHORIZATION:
       return "You don't have permission to perform this action.";
     case ErrorType.VALIDATION:
-      return "Please check your input and try again.";
+      return 'Please check your input and try again.';
     case ErrorType.NOT_FOUND:
-      return "The requested resource was not found.";
+      return 'The requested resource was not found.';
     case ErrorType.API:
-      return "An unexpected error occurred. Please try again later.";
+      return 'An unexpected error occurred. Please try again later.';
     default:
-      return "An unexpected error occurred.";
+      return 'An unexpected error occurred.';
   }
 };
 
 // Main error handling function
 export const handleError = (error: DefaultError) => {
+  if (isApiError(error)) {
+    toast.error(error.message);
+    return;
+  }
+
   if (axios.isAxiosError(error) && error.response?.data?.messages?.length > 0) {
     error.response!.data.messages.forEach((err: string) => {
       toast.error(err, {
-        id: "error-toast",
+        id: 'error-toast',
       });
     });
   } else {
     handleApiError(error);
-    const userMessage = GetUserFriendlyMessage(getErrorType(error));
+    const userMessage = GetUserFriendlyMessage(error);
     toast.error(userMessage);
   }
 };
@@ -75,7 +102,7 @@ export const handleError = (error: DefaultError) => {
 export const handleApiError = (error: DefaultError) => {
   if (axios.isAxiosError(error) && error.response?.status === 401) {
     clearTokens();
-    router.navigate({ to: "/auth/login" });
+    router.navigate({ to: '/auth/login' });
   }
   return;
 };
