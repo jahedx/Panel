@@ -19,8 +19,11 @@ import { Route as Error403Import } from './routes/error/403'
 import { Route as DashboardLayoutImport } from './routes/dashboard/_layout'
 import { Route as AuthLayoutImport } from './routes/auth/_layout'
 import { Route as DashboardLayoutIndexImport } from './routes/dashboard/_layout/index'
+import { Route as DashboardLayoutUsersIndexImport } from './routes/dashboard/_layout/users/index'
+import { Route as DashboardLayoutRulesIndexImport } from './routes/dashboard/_layout/rules/index'
 import { Route as DashboardLayoutProfileIndexImport } from './routes/dashboard/_layout/profile/index'
 import { Route as DashboardLayoutNotificationsIndexImport } from './routes/dashboard/_layout/notifications/index'
+import { Route as DashboardLayoutDevicesIndexImport } from './routes/dashboard/_layout/devices/index'
 import { Route as AuthLayoutLoginIndexImport } from './routes/auth/_layout/login/index'
 
 // Create Virtual Routes
@@ -76,6 +79,18 @@ const DashboardLayoutIndexRoute = DashboardLayoutIndexImport.update({
   getParentRoute: () => DashboardLayoutRoute,
 } as any)
 
+const DashboardLayoutUsersIndexRoute = DashboardLayoutUsersIndexImport.update({
+  id: '/users/',
+  path: '/users/',
+  getParentRoute: () => DashboardLayoutRoute,
+} as any)
+
+const DashboardLayoutRulesIndexRoute = DashboardLayoutRulesIndexImport.update({
+  id: '/rules/',
+  path: '/rules/',
+  getParentRoute: () => DashboardLayoutRoute,
+} as any)
+
 const DashboardLayoutProfileIndexRoute =
   DashboardLayoutProfileIndexImport.update({
     id: '/profile/',
@@ -87,6 +102,13 @@ const DashboardLayoutNotificationsIndexRoute =
   DashboardLayoutNotificationsIndexImport.update({
     id: '/notifications/',
     path: '/notifications/',
+    getParentRoute: () => DashboardLayoutRoute,
+  } as any)
+
+const DashboardLayoutDevicesIndexRoute =
+  DashboardLayoutDevicesIndexImport.update({
+    id: '/devices/',
+    path: '/devices/',
     getParentRoute: () => DashboardLayoutRoute,
   } as any)
 
@@ -163,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLayoutLoginIndexImport
       parentRoute: typeof AuthLayoutImport
     }
+    '/dashboard/_layout/devices/': {
+      id: '/dashboard/_layout/devices/'
+      path: '/devices'
+      fullPath: '/dashboard/devices'
+      preLoaderRoute: typeof DashboardLayoutDevicesIndexImport
+      parentRoute: typeof DashboardLayoutImport
+    }
     '/dashboard/_layout/notifications/': {
       id: '/dashboard/_layout/notifications/'
       path: '/notifications'
@@ -175,6 +204,20 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/dashboard/profile'
       preLoaderRoute: typeof DashboardLayoutProfileIndexImport
+      parentRoute: typeof DashboardLayoutImport
+    }
+    '/dashboard/_layout/rules/': {
+      id: '/dashboard/_layout/rules/'
+      path: '/rules'
+      fullPath: '/dashboard/rules'
+      preLoaderRoute: typeof DashboardLayoutRulesIndexImport
+      parentRoute: typeof DashboardLayoutImport
+    }
+    '/dashboard/_layout/users/': {
+      id: '/dashboard/_layout/users/'
+      path: '/users'
+      fullPath: '/dashboard/users'
+      preLoaderRoute: typeof DashboardLayoutUsersIndexImport
       parentRoute: typeof DashboardLayoutImport
     }
   }
@@ -206,15 +249,21 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface DashboardLayoutRouteChildren {
   DashboardLayoutIndexRoute: typeof DashboardLayoutIndexRoute
+  DashboardLayoutDevicesIndexRoute: typeof DashboardLayoutDevicesIndexRoute
   DashboardLayoutNotificationsIndexRoute: typeof DashboardLayoutNotificationsIndexRoute
   DashboardLayoutProfileIndexRoute: typeof DashboardLayoutProfileIndexRoute
+  DashboardLayoutRulesIndexRoute: typeof DashboardLayoutRulesIndexRoute
+  DashboardLayoutUsersIndexRoute: typeof DashboardLayoutUsersIndexRoute
 }
 
 const DashboardLayoutRouteChildren: DashboardLayoutRouteChildren = {
   DashboardLayoutIndexRoute: DashboardLayoutIndexRoute,
+  DashboardLayoutDevicesIndexRoute: DashboardLayoutDevicesIndexRoute,
   DashboardLayoutNotificationsIndexRoute:
     DashboardLayoutNotificationsIndexRoute,
   DashboardLayoutProfileIndexRoute: DashboardLayoutProfileIndexRoute,
+  DashboardLayoutRulesIndexRoute: DashboardLayoutRulesIndexRoute,
+  DashboardLayoutUsersIndexRoute: DashboardLayoutUsersIndexRoute,
 }
 
 const DashboardLayoutRouteWithChildren = DashboardLayoutRoute._addFileChildren(
@@ -241,8 +290,11 @@ export interface FileRoutesByFullPath {
   '/error/404': typeof Error404Route
   '/dashboard/': typeof DashboardLayoutIndexRoute
   '/auth/login': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/devices': typeof DashboardLayoutDevicesIndexRoute
   '/dashboard/notifications': typeof DashboardLayoutNotificationsIndexRoute
   '/dashboard/profile': typeof DashboardLayoutProfileIndexRoute
+  '/dashboard/rules': typeof DashboardLayoutRulesIndexRoute
+  '/dashboard/users': typeof DashboardLayoutUsersIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -252,8 +304,11 @@ export interface FileRoutesByTo {
   '/error/403': typeof Error403Route
   '/error/404': typeof Error404Route
   '/auth/login': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/devices': typeof DashboardLayoutDevicesIndexRoute
   '/dashboard/notifications': typeof DashboardLayoutNotificationsIndexRoute
   '/dashboard/profile': typeof DashboardLayoutProfileIndexRoute
+  '/dashboard/rules': typeof DashboardLayoutRulesIndexRoute
+  '/dashboard/users': typeof DashboardLayoutUsersIndexRoute
 }
 
 export interface FileRoutesById {
@@ -267,8 +322,11 @@ export interface FileRoutesById {
   '/error/404': typeof Error404Route
   '/dashboard/_layout/': typeof DashboardLayoutIndexRoute
   '/auth/_layout/login/': typeof AuthLayoutLoginIndexRoute
+  '/dashboard/_layout/devices/': typeof DashboardLayoutDevicesIndexRoute
   '/dashboard/_layout/notifications/': typeof DashboardLayoutNotificationsIndexRoute
   '/dashboard/_layout/profile/': typeof DashboardLayoutProfileIndexRoute
+  '/dashboard/_layout/rules/': typeof DashboardLayoutRulesIndexRoute
+  '/dashboard/_layout/users/': typeof DashboardLayoutUsersIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -281,8 +339,11 @@ export interface FileRouteTypes {
     | '/error/404'
     | '/dashboard/'
     | '/auth/login'
+    | '/dashboard/devices'
     | '/dashboard/notifications'
     | '/dashboard/profile'
+    | '/dashboard/rules'
+    | '/dashboard/users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -291,8 +352,11 @@ export interface FileRouteTypes {
     | '/error/403'
     | '/error/404'
     | '/auth/login'
+    | '/dashboard/devices'
     | '/dashboard/notifications'
     | '/dashboard/profile'
+    | '/dashboard/rules'
+    | '/dashboard/users'
   id:
     | '__root__'
     | '/'
@@ -304,8 +368,11 @@ export interface FileRouteTypes {
     | '/error/404'
     | '/dashboard/_layout/'
     | '/auth/_layout/login/'
+    | '/dashboard/_layout/devices/'
     | '/dashboard/_layout/notifications/'
     | '/dashboard/_layout/profile/'
+    | '/dashboard/_layout/rules/'
+    | '/dashboard/_layout/users/'
   fileRoutesById: FileRoutesById
 }
 
@@ -369,8 +436,11 @@ export const routeTree = rootRoute
       "parent": "/dashboard",
       "children": [
         "/dashboard/_layout/",
+        "/dashboard/_layout/devices/",
         "/dashboard/_layout/notifications/",
-        "/dashboard/_layout/profile/"
+        "/dashboard/_layout/profile/",
+        "/dashboard/_layout/rules/",
+        "/dashboard/_layout/users/"
       ]
     },
     "/error/403": {
@@ -387,12 +457,24 @@ export const routeTree = rootRoute
       "filePath": "auth/_layout/login/index.tsx",
       "parent": "/auth/_layout"
     },
+    "/dashboard/_layout/devices/": {
+      "filePath": "dashboard/_layout/devices/index.tsx",
+      "parent": "/dashboard/_layout"
+    },
     "/dashboard/_layout/notifications/": {
       "filePath": "dashboard/_layout/notifications/index.tsx",
       "parent": "/dashboard/_layout"
     },
     "/dashboard/_layout/profile/": {
       "filePath": "dashboard/_layout/profile/index.tsx",
+      "parent": "/dashboard/_layout"
+    },
+    "/dashboard/_layout/rules/": {
+      "filePath": "dashboard/_layout/rules/index.tsx",
+      "parent": "/dashboard/_layout"
+    },
+    "/dashboard/_layout/users/": {
+      "filePath": "dashboard/_layout/users/index.tsx",
       "parent": "/dashboard/_layout"
     }
   }

@@ -4,11 +4,11 @@ import { ApiError, IotCloudPortalApiResponse } from '@/services/IotCloudPortal';
 
 // Define microservice endpoints
 export const MICROSERVICES = {
-    AUTH: `${BASE_URL}/auth`,
-    USER: `${BASE_URL}/user`,
-    PRODUCT: `${BASE_URL}/product`,
-    ORDER: `${BASE_URL}/order`,
-    PAYMENT: `${BASE_URL}/payment`,
+    AUTH: `${BASE_URL}:3001`,
+    USER: `${BASE_URL}:3002`,
+    PRODUCT: `${BASE_URL}:3003`,
+    ORDER: `${BASE_URL}:3002`,
+    PAYMENT: `${BASE_URL}:3003`,
 };
 
 // Create axios instances for each microservice

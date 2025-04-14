@@ -1,4 +1,4 @@
-import { DataTable } from '@/components/ui/new-data-table';
+import { DataTable } from '@/components/ui/data-table';
 import { mockTableData, TableData } from '@/mock/tableData';
 import { createFileRoute } from '@tanstack/react-router';
 import { ColumnDef } from '@tanstack/react-table';

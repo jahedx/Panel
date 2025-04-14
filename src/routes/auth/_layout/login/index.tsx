@@ -34,6 +34,7 @@ function RouteComponent() {
           <Input
             {...inputConfigs(true)}
             type="text"
+            id="username"
             title="نام کاربری"
             minLength={2}
             name="username"
@@ -45,6 +46,7 @@ function RouteComponent() {
           <Input
             {...inputConfigs()}
             type="password"
+            id="password"
             title="کلمه عبور*"
             required
             minLength={2}

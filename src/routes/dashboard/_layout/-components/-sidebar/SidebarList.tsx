@@ -1,5 +1,5 @@
-import { HouseIcon, PanelsRightBottomIcon } from "@/assets/Icons";
-import React from "react";
+import { BellIcon, HouseIcon, ScaleIcon, UnplugIcon, UserCogIcon } from '@/assets/Icons';
+import React from 'react';
 
 export interface SidebarItemType {
   subItems?: SidebarItemType[];
@@ -15,78 +15,40 @@ export interface SidebarItemType {
 export const SidebarList = (): SidebarItemType[] => {
   return [
     {
-      value: "firstPage",
+      value: 'dashboard',
       icon: <HouseIcon size={20} stroke={2.5} />,
-      name: "داشبورد",
-      link: "/about/ready",
+      name: 'داشبورد',
+      link: '/dashboard',
       isMain: true,
     },
     {
-      value: "firstPage",
-      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
-      name: "صفحه 1",
-      link: "/about",
+      value: 'users',
+      icon: <UserCogIcon size={20} stroke={2.5} />,
+      name: 'مدیریت کاربران',
+      link: '/dashboard/users',
 
       isMain: true,
     },
     {
-      value: "firstPage",
-      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
-      name: "صفحه 2",
-      link: "/about/ready2",
+      value: 'devices',
+      icon: <UnplugIcon size={20} stroke={2.5} />,
+      name: 'دستگاه ها و سازمان ها',
+      link: '/dashboard/devices',
       isMain: true,
     },
     {
-      value: "firstPage",
-      icon: <PanelsRightBottomIcon size={20} stroke={2.5} />,
-      name: "صفحه 3",
-      link: "/about/ready3",
+      value: 'rules',
+      icon: <ScaleIcon size={20} stroke={2.5} />,
+      name: 'قوانین و اقدامات ',
+      link: '/dashboard/rules',
       isMain: true,
     },
-    // {
-    //   value: "preRegister",
-    //   icon: "",
-    //   name: "صفحه 1",
-    //   subItems: [
-    //     {
-    //       value: "valueTitle",
-    //       icon: "",
-    //       name: "صفحه 1-1",
-    //       link: "/about",
-    //     },
-    //     {
-    //       value: "valueTitle",
-    //       icon: "",
-    //       name: "صفحه 2-1",
-    //       link: "#",
-    //     },
-    //   ],
-    // },
-    // {
-    //   value: "status",
-    //   icon: "",
-    //   name: "صفحه-2",
-    //   subItems: [
-    //     {
-    //       value: "valueTitle",
-    //       icon: "",
-    //       name: "صفحه-2-2",
-    //       link: "#",
-    //     },
-    //     {
-    //       value: "valueTitle",
-    //       icon: "",
-    //       name: "صفحه2-2",
-    //       link: "#",
-    //     },
-    //     {
-    //       value: "valueTitle",
-    //       icon: "",
-    //       name: "صفحه13",
-    //       disable: true,
-    //       link: "#",
-    //     },
-    //   ],
-    // },
+    {
+      value: 'notifications',
+      icon: <BellIcon size={20} stroke={2.5} />,
+      name: 'اعلان ها  و پیام ها',
+      link: '/dashboard/notifications',
+      isMain: true,
+    },
   ];
 };

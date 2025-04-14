@@ -57,7 +57,7 @@ export default {
         },
       },
       height: {
-        input: '2.5rem', // 40px default height for inputs
+        input: '2rem', // 40px default height for inputs
       },
       padding: {
         input: '0.75rem', // 12px default padding for inputs

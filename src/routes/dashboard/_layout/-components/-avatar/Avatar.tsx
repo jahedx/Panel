@@ -1,20 +1,27 @@
-import { ChevronRightIcon, ChevronUpIcon, LogoutIcon } from "@/assets/Icons";
+import { ChevronRightIcon, ChevronUpIcon, LogoutIcon } from '@/assets/Icons';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
+import { useNavigate } from '@tanstack/react-router';
 
 interface AvatarProps {
   isCollapsed?: boolean;
 }
 
 const Avatar = ({ isCollapsed }: AvatarProps) => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate({ to: '/' });
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        className={`w-full h-12 bg-background-secondary hover:bg-background-secondary/80  transition-colors cursor-pointer ${isCollapsed ? "p-1 rounded-full" : "p-3 rounded-xl"} flex items-center gap-3`}
+        className={`w-full h-12 bg-background-secondary hover:bg-background-secondary/80  transition-colors cursor-pointer ${isCollapsed ? 'p-1 rounded-full' : 'p-3 rounded-xl'} flex items-center gap-3`}
       >
         <img
           src="https://img.a.transfermarkt.technology/portrait/header/14421-1719153884.jpg?lm=1"
@@ -43,7 +50,7 @@ const Avatar = ({ isCollapsed }: AvatarProps) => {
         </DropdownMenuItem>
         <div className="h-[1px] bg-border my-2" />
         <DropdownMenuItem className="flex items-center justify-between rounded-lg text-error hover:bg-error/10 hover:text-error">
-          <div className="flex items-center gap-2">
+          <div onClick={handleLogout} className="flex items-center gap-2">
             <LogoutIcon className="h-4 w-4" />
             <span>خروج از حساب</span>
           </div>

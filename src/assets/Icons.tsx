@@ -274,3 +274,107 @@ export function CalendarIcon({
     </svg>
   );
 }
+export function UserCogIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={'currentColor'}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-user-cog-icon lucide-user-cog`}
+    >
+      <circle cx="18" cy="15" r="3" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M10 15H6a4 4 0 0 0-4 4v2" />
+      <path d="m21.7 16.4-.9-.3" />
+      <path d="m15.2 13.9-.9-.3" />
+      <path d="m16.6 18.7.3-.9" />
+      <path d="m19.1 12.2.3-.9" />
+      <path d="m19.6 18.7-.4-1" />
+      <path d="m16.8 12.3-.4-1" />
+      <path d="m14.3 16.6 1-.4" />
+      <path d="m20.7 13.8 1-.4" />
+    </svg>
+  );
+}
+export function UnplugIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={'currentColor'}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-unplug-icon lucide-unplug`}
+    >
+      <path d="m19 5 3-3" />
+      <path d="m2 22 3-3" />
+      <path d="M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z" />
+      <path d="M7.5 13.5 10 11" />
+      <path d="M10.5 16.5 13 14" />
+      <path d="m12 6 6 6 2.3-2.3a2.4 2.4 0 0 0 0-3.4l-2.6-2.6a2.4 2.4 0 0 0-3.4 0Z" />
+    </svg>
+  );
+}
+export function ScaleIcon({
+  className,
+  size = DEFAULT_SIZE,
+  stroke = DEFAULT_STROKE_WIDTH,
+}: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={'currentColor'}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-scale-icon lucide-scale`}
+    >
+      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+      <path d="M7 21h10" />
+      <path d="M12 3v18" />
+      <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+    </svg>
+  );
+}
+export function BellIcon({ className, size = DEFAULT_SIZE, stroke = DEFAULT_STROKE_WIDTH }: Props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={'currentColor'}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`${className} lucide lucide-bell-icon lucide-bell`}
+    >
+      <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+      <path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+    </svg>
+  );
+}

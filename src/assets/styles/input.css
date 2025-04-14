@@ -40,9 +40,7 @@
 
 /** Input Title Animations **/
 .default-input-wrapper .default-input-title {
-  @apply font-normal absolute right-0 z-10 cursor-text pointer-events-none px-3 text-left overflow-hidden whitespace-nowrap truncate;
-  @apply text-[13px] top-[21px] leading-[100%] transform -translate-y-full;
-  @apply transition-all duration-200 ease-in-out;
+  @apply font-normal absolute right-0 z-10 cursor-text pointer-events-none px-3 text-left overflow-hidden whitespace-nowrap truncate text-[13px] top-[29px] leading-[100%] transform -translate-y-full transition-all duration-200 ease-in-out;
 }
 
 /* Title Movement States */

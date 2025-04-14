@@ -1,9 +1,16 @@
+export interface Pagination {
+    total_count: number;
+    total_pages: number;
+    current_page: number;
+    page_size: number;
+}
+
 export type IotCloudPortalApiResponse<T> = {
     status_code?: number;
     status: 'success' | 'failure';
     message?: string;
     key?: string;
-    data: T | null;
+    data: (T & { pagination?: Pagination }) | null;
     token?: string;
 }
 

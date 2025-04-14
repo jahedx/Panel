@@ -12,9 +12,8 @@ const SearchBar = () => {
     <div className={`m-4 rounded-md ${sidebarStatus === 'closed' ? 'hidden' : ''}`}>
       <Input
         {...inputConfigs()}
-        placeholder={'جستجو'}
+        title={'جستجو'}
         id="code"
-        titleClassName="w-0"
         name="text"
         type="text"
         validationOn="submit"

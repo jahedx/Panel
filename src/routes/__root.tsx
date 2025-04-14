@@ -35,20 +35,31 @@ function RootComponent() {
           toastOptions={{
             duration: 5000,
             style: {
-              background: 'var(--background)',
-              color: 'var(--foreground)',
+              background: 'var(--color-card)',
+              color: 'var(--color-foreground)',
               border: '1px solid var(--border)',
+              fontSize: '0.875rem',
+              padding: '0.75rem',
+              borderRadius: '0.375rem',
             },
             success: {
+              style: {
+                background: 'var(--color-card)',
+                border: '1px solid var(--color-success)',
+              },
               iconTheme: {
                 primary: 'var(--color-success)',
-                secondary: 'var(--background)',
+                secondary: 'var(--color-card)',
               },
             },
             error: {
+              style: {
+                background: 'var(--color-card)',
+                border: '1px solid var(--color-error)',
+              },
               iconTheme: {
                 primary: 'var(--color-error)',
-                secondary: 'var(--background)',
+                secondary: 'var(--color-card)',
               },
             },
           }}

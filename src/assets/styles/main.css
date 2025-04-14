@@ -9,33 +9,33 @@
 }
 
 @font-face {
-  font-family: "IranSans";
-  src: url("/assets/fonts/IRANSansWeb.woff2") format("woff2");
+  font-family: 'IranSans';
+  src: url('/assets/fonts/IRANSansWeb.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "IranSansBold";
-  src: url("/assets/fonts/IRANSansWeb_Bold.woff2") format("woff2");
+  font-family: 'IranSansBold';
+  src: url('/assets/fonts/IRANSansWeb_Bold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "IranSansMedium";
-  src: url("/assets/fonts/IRANSansWeb_Medium.woff2") format("woff2");
+  font-family: 'IranSansMedium';
+  src: url('/assets/fonts/IRANSansWeb_Medium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "IranSansLight";
-  src: url("/assets/fonts/IRANSansWeb_Light.woff2") format("woff2");
+  font-family: 'IranSansLight';
+  src: url('/assets/fonts/IRANSansWeb_Light.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "IranSansUltraLight";
-  src: url("/assets/fonts/IRANSansWeb_UltraLight.woff2") format("woff2");
+  font-family: 'IranSansUltraLight';
+  src: url('/assets/fonts/IRANSansWeb_UltraLight.woff2') format('woff2');
 }
 
 @layer base {
   body {
-    font-family: IranSans, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif !important;
+    font-family: IranSans, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
     @apply text-base text-foreground bg-background;
   }
 
@@ -59,6 +59,7 @@
 @layer base {
   :root {
     /* Base colors that don't change with theme */
+    --radius: 0.5rem;
     --color-primary-50: #f4f0fe;
     --color-primary-100: #e9e0fd;
     --color-primary-200: #d3c1fb;
@@ -69,7 +70,6 @@
     --color-primary-700: #5935c3;
     --color-primary-800: #472e9c;
     --color-primary-900: #2d2938;
-
     --color-success: #4ac07e;
     --color-warning: #f9b84a;
     --color-error: #e5484d;
@@ -88,6 +88,13 @@
     --ring: rgba(110, 70, 230, 0.5);
     --shadow: rgba(110, 70, 230, 0.1);
     --overlay: rgba(45, 41, 56, 0.6);
+    --color-card: #ffffff; /* Light card background */
+    --color-background: #f8f7fc; /* Light main background */
+    --color-background-secondary: #f6fafb; /* Light secondary background */
+    --color-border: #d7d0f1; /* Light border color */
+    --color-foreground: #2d2938; /* Light primary text */
+    --color-foreground-secondary: #5f5a6e; /* Light secondary text */
+    --color-muted: #9994a7; /* Light disabled text */
 
     /* Neutral colors */
     --color-neutral-50: #f7f7f8;
@@ -100,9 +107,16 @@
     --color-neutral-700: #3c3c44;
     --color-neutral-800: #27272e;
     --color-neutral-900: #18181b;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   .dark {
+    --radius: 0.5rem;
     --background: 23 21 37; /* #171525 */
     --background-secondary: 35 33 51; /* #232133 */
     --card: 45 42 60; /* #2d2a3c */
@@ -141,6 +155,12 @@
     --color-primary-700: #c4b3f8;
     --color-primary-800: #e2d9fc;
     --color-primary-900: #f4f0fe; /* Lightest shade */
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 /* Dark mode neutral colors */
